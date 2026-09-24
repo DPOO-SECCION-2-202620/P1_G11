@@ -1,0 +1,14 @@
+# Eclipse / Java
+bin/
+target/
+*.class
+.classpath
+.project
+.settings/
+
+# Datos generados por la aplicación (Entrega 2)
+datos/
+
+# Sistema
+.DS_Store
+Thumbs.db
