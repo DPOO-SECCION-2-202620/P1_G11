@@ -35,32 +35,9 @@ public abstract class AbstractCompetencia implements Serializable {
 		this.partidos = new ArrayList<>();
 	}
 
-	public DepConjunto getDeporte() {
-		return deporte;
-	}
-
-	public void inscribirEquipo(Equipo equipo, List<RolJugador> nomina) {
-		if (!(equipo.getCategoria() == categoria)) {
-			throw new IllegalStateException("La categoria del equipo no corresponde a la de la competenica");
-		}
-		if (!(equipo.getDeporte() == deporte)) {
-			throw new IllegalStateException("El deporte del equipo no corresponde a la de la competenica");
-		}
-		if (nomina.size() < minimoJugadoresNomina) {
-			throw new IllegalStateException("Jugadores insuficientes para la competencia");
-
-		}
-		for (ParticipacionCompe p : participaciones) {
-			if (p.getEquipo() == equipo) {
-				throw new IllegalStateException("El equipo ya se encuentra inscrito");
-			}
-		}
-
-		ParticipacionCompe p = new ParticipacionCompe(this, equipo);
-		participaciones.add(p);
-		for (RolJugador rolJugador : nomina) {
-			p.getNomina().add(new JugadorNomina(rolJugador));
-		}
+	public void inscribirEquipo(Equipo equipo, List<Jugador> nomina) {
+		// TODO: RN-24. En este UML Equipo no tiene getCategoria/getDeporte ni ParticipacionCompe getEquipo
+		throw new UnsupportedOperationException("Pendiente");
 	}
 
 	public void agregarPartido(PartidoCompetencia partido) {
@@ -68,16 +45,12 @@ public abstract class AbstractCompetencia implements Serializable {
 	}
 
 	public ParticipacionCompe getParticipacion(Equipo equipo) {
-		for (ParticipacionCompe participacion : participaciones) {
-			if (participacion.getEquipo() == equipo) {
-				return  participacion;
-			}
-		}
-		throw new IllegalStateException("El equipo no se encuentra inscrito");
+		// TODO: en este UML ParticipacionCompe no tiene getEquipo
+		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public RolJugador getGoleador() {
-		// TODO: D-12: calcular recorriendo los partidos
+	public Jugador getGoleador() {
+		// TODO: D-12: en este UML las estadisticas no tienen getters
 		throw new UnsupportedOperationException("Pendiente");
 	}
 }

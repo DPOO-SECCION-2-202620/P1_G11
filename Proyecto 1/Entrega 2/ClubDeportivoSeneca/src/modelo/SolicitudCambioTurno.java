@@ -6,7 +6,7 @@ public class SolicitudCambioTurno implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private RolEmpleado empleado;
+	private AbstractEmpleado empleado;
 
 	private TurnoEmpleado turnoActual;
 
@@ -16,7 +16,7 @@ public class SolicitudCambioTurno implements Serializable {
 
 	private EstadoSolicitud estado;
 
-	public SolicitudCambioTurno(RolEmpleado empleado, TurnoEmpleado turnoActual, TurnoEmpleado turnoNuevo, String fecha) {
+	public SolicitudCambioTurno(AbstractEmpleado empleado, TurnoEmpleado turnoActual, TurnoEmpleado turnoNuevo, String fecha) {
 		this.empleado = empleado;
 		this.turnoActual = turnoActual;
 		this.turnoNuevo = turnoNuevo;
@@ -30,17 +30,5 @@ public class SolicitudCambioTurno implements Serializable {
 
 	public void setEstado(EstadoSolicitud estado) {
 		this.estado = estado;
-	}
-
-	public RolEmpleado getEmpleado() {
-		return empleado;
-	}
-
-	public TurnoEmpleado getTurnoActual() {
-		return turnoActual;
-	}
-
-	public TurnoEmpleado getTurnoNuevo() {
-		return turnoNuevo;
 	}
 }

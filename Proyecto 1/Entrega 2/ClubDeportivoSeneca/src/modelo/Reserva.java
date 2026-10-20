@@ -17,34 +17,25 @@ public class Reserva implements Serializable {
 
 	private int cantidadJugadores;
 
-	private List<RolJugador> jugadores;
+	private boolean activa;
 
-	public Reserva(Cancha cancha, String fecha, int horaInicio, int horaFin, List<RolJugador> jugadores) {
+	private List<Jugador> jugadores;
+
+	public Reserva(Cancha cancha, String fecha, int horaInicio, int horaFin, List<Jugador> jugadores) {
 		this.cancha = cancha;
 		this.fecha = fecha;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 		this.cantidadJugadores = jugadores.size();
+		this.activa = true;
 		this.jugadores = jugadores;
 	}
 
-	public Cancha getCancha() {
-		return cancha;
+	public void cancelar() {
+		activa = false;
 	}
 
-	public String getFecha() {
-		return fecha;
-	}
-
-	public int getHoraInicio() {
-		return horaInicio;
-	}
-
-	public int getHoraFin() {
-		return horaFin;
-	}
-
-	public List<RolJugador> getJugadores() {
-		return jugadores;
+	public boolean estaActiva() {
+		return activa;
 	}
 }

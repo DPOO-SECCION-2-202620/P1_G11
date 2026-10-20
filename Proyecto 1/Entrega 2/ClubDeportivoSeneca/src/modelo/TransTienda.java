@@ -6,8 +6,8 @@ public class TransTienda extends AbstractTransaccion {
 
 	public static final double IVA = 0.19;
 
-	public TransTienda(Persona comprador, String fecha, double descuento, int puntosRedimidos) {
-		super(comprador, fecha, descuento, puntosRedimidos);
+	public TransTienda(String fecha, double descuento, int puntosRedimidos) {
+		super(fecha, descuento, puntosRedimidos);
 	}
 
 	@Override

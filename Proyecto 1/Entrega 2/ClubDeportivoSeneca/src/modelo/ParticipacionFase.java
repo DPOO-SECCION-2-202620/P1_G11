@@ -6,16 +6,13 @@ public class ParticipacionFase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Fase fase;
-
 	private Equipo equipo;
 
 	private int puntosFase;
 
 	private boolean avanzo;
 
-	public ParticipacionFase(Fase fase, Equipo equipo) {
-		this.fase = fase;
+	public ParticipacionFase(Equipo equipo) {
 		this.equipo = equipo;
 		this.puntosFase = 0;
 		this.avanzo = false;

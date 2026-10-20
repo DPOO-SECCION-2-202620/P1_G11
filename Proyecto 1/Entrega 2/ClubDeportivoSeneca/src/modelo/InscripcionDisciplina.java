@@ -8,7 +8,7 @@ public class InscripcionDisciplina implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private RolJugador jugador;
+	private Jugador jugador;
 
 	private DepIndividual deporte;
 
@@ -18,7 +18,7 @@ public class InscripcionDisciplina implements Serializable {
 
 	private List<Integer> historialRanking;
 
-	public InscripcionDisciplina(RolJugador jugador, DepIndividual deporte) {
+	public InscripcionDisciplina(Jugador jugador, DepIndividual deporte) {
 		this.jugador = jugador;
 		this.deporte = deporte;
 		this.nivel = Nivel.PRINCIPIANTE;
@@ -44,14 +44,6 @@ public class InscripcionDisciplina implements Serializable {
 		} else {
 			ranking = nuevo;
 		}
-		
-	}
-
-	public RolJugador getJugador() {
-		return jugador;
-	}
-
-	public DepIndividual getDeporte() {
-		return deporte;
+		historialRanking.add(ranking);
 	}
 }

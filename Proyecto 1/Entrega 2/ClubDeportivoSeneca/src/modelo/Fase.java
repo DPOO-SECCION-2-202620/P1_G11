@@ -15,7 +15,7 @@ public class Fase implements Serializable {
 	public Fase(String nombre, String tipo, Equipo equipo) {
 		this.nombre = nombre;
 		this.tipo = tipo;
-		this.participacion = new ParticipacionFase(this, equipo);
+		this.participacion = new ParticipacionFase(equipo);
 	}
 
 	public ParticipacionFase getParticipacion() {

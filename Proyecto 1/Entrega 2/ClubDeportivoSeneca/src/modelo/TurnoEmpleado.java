@@ -7,7 +7,7 @@ public class TurnoEmpleado implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private RolEmpleado empleado;
+	private AbstractEmpleado empleado;
 
 	private DayOfWeek dia;
 
@@ -15,26 +15,10 @@ public class TurnoEmpleado implements Serializable {
 
 	private int horaFin;
 
-	public TurnoEmpleado(RolEmpleado empleado, DayOfWeek dia, int horaInicio, int horaFin) {
+	public TurnoEmpleado(AbstractEmpleado empleado, DayOfWeek dia, int horaInicio, int horaFin) {
 		this.empleado = empleado;
 		this.dia = dia;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
-	}
-
-	public RolEmpleado getEmpleado() {
-		return empleado;
-	}
-
-	public DayOfWeek getDia() {
-		return dia;
-	}
-
-	public int getHoraInicio() {
-		return horaInicio;
-	}
-
-	public int getHoraFin() {
-		return horaFin;
 	}
 }

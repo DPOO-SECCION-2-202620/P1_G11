@@ -4,13 +4,13 @@ public class Tenis extends DepIndividual {
 
 	private static final long serialVersionUID = 1L;
 
-	public Tenis() {
-		super("Tenis");
+	public Tenis(int maxSimultaneas) {
+		super("Tenis", maxSimultaneas);
 	}
 
 	@Override
-	public AbstractEstadisticas crearEstadisticas(AbstractPartido partido, RolJugador jugador) {
-		return new EstadisticasTenisPadel(partido, jugador);
+	public AbstractEstadisticas crearEstadisticas() {
+		return new EstadisticasTenisPadel();
 	}
 
 	@Override

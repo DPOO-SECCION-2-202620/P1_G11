@@ -20,6 +20,10 @@ public class ClubDeportivo implements Serializable {
 
 	private List<Cancha> canchas;
 
+	private List<Reserva> reservas;
+
+	private List<Entrenamiento> entrenamientos;
+
 	private List<AbstractPartido> partidos;
 
 	private List<AbstractCompetencia> competencias;
@@ -39,6 +43,8 @@ public class ClubDeportivo implements Serializable {
 		this.deportes = new ArrayList<>();
 		this.equipos = new ArrayList<>();
 		this.canchas = new ArrayList<>();
+		this.reservas = new ArrayList<>();
+		this.entrenamientos = new ArrayList<>();
 		this.partidos = new ArrayList<>();
 		this.competencias = new ArrayList<>();
 		this.articulos = new ArrayList<>();
@@ -71,6 +77,14 @@ public class ClubDeportivo implements Serializable {
 		return canchas;
 	}
 
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public List<Entrenamiento> getEntrenamientos() {
+		return entrenamientos;
+	}
+
 	public List<AbstractPartido> getPartidos() {
 		return partidos;
 	}
@@ -93,5 +107,25 @@ public class ClubDeportivo implements Serializable {
 
 	public List<SolicitudCambioTurno> getSolicitudes() {
 		return solicitudes;
+	}
+
+	public Cancha asignarCancha(AbstractDeporte deporte, String fecha, int horaInicio, int horaFin, int cantidadJugadores) {
+		// TODO: RN-06 a RN-09: cancha del deporte, libre, con capacidad y sin pasar maxSimultaneas
+		throw new UnsupportedOperationException("Pendiente");
+	}
+
+	public void liberarCancha(Cancha cancha, String fecha, int horaInicio, int horaFin) {
+		// TODO: cancha.liberar(...)
+		throw new UnsupportedOperationException("Pendiente");
+	}
+
+	public int contarOcupadas(AbstractDeporte deporte, String fecha, int horaInicio, int horaFin) {
+		// TODO: RN-09: canchas del deporte ocupadas en ese bloque
+		throw new UnsupportedOperationException("Pendiente");
+	}
+
+	public boolean bloqueValido(int horaInicio, int horaFin) {
+		// TODO: dentro del horario del club y horaInicio < horaFin
+		throw new UnsupportedOperationException("Pendiente");
 	}
 }

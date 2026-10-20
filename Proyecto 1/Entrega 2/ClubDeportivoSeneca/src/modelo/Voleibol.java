@@ -6,13 +6,13 @@ public class Voleibol extends DepConjunto {
 
 	private static final long serialVersionUID = 1L;
 
-	public Voleibol() {
-		super("Voleibol");
+	public Voleibol(int maxSimultaneas) {
+		super("Voleibol", maxSimultaneas);
 	}
 
 	@Override
-	public AbstractEstadisticas crearEstadisticas(AbstractPartido partido, RolJugador jugador) {
-		return new EstadisticasVolei(partido, jugador);
+	public AbstractEstadisticas crearEstadisticas() {
+		return new EstadisticasVolei();
 	}
 
 	@Override

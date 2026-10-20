@@ -6,8 +6,8 @@ public abstract class DepConjunto extends AbstractDeporte {
 
 	private static final long serialVersionUID = 1L;
 
-	protected DepConjunto(String nombre) {
-		super(nombre);
+	protected DepConjunto(String nombre, int maxSimultaneas) {
+		super(nombre, maxSimultaneas);
 	}
 
 	public abstract int getMinJugadores();

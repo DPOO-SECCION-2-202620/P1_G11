@@ -8,16 +8,13 @@ public class ParticipacionCompe implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private AbstractCompetencia competencia;
-
 	private Equipo equipo;
 
 	private int puntosAcumulados;
 
 	private List<JugadorNomina> nomina;
 
-	public ParticipacionCompe(AbstractCompetencia competencia, Equipo equipo) {
-		this.competencia = competencia;
+	public ParticipacionCompe(Equipo equipo) {
 		this.equipo = equipo;
 		this.puntosAcumulados = 0;
 		this.nomina = new ArrayList<>();
@@ -33,9 +30,5 @@ public class ParticipacionCompe implements Serializable {
 
 	public void sumarPuntos(int puntos) {
 		puntosAcumulados += puntos;
-	}
-
-	public Equipo getEquipo() {
-		return equipo;
 	}
 }

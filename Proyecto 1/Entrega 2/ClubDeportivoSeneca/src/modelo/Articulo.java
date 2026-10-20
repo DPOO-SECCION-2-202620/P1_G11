@@ -28,7 +28,7 @@ public class Articulo implements Serializable {
 	}
 
 	public void mover(Ubicacion origen, Ubicacion destino, int cantidad) {
-		// TODO: RF-ADM-07/08, D-21: validar cantidad suficiente en origen
+		// TODO: RF-ADM-07, D-21: validar cantidad suficiente en origen
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
@@ -37,15 +37,8 @@ public class Articulo implements Serializable {
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public double getPrecio() {
-		return precio;
+	public void reabastecer(Ubicacion ubicacion, int cantidad) {
+		// TODO: RF-ADM-08: sumar cantidad positiva
+		throw new UnsupportedOperationException("Pendiente");
 	}
 }

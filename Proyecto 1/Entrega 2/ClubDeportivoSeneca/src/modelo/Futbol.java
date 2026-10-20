@@ -6,13 +6,13 @@ public class Futbol extends DepConjunto {
 
 	private static final long serialVersionUID = 1L;
 
-	public Futbol() {
-		super("Futbol");
+	public Futbol(int maxSimultaneas) {
+		super("Futbol", maxSimultaneas);
 	}
 
 	@Override
-	public AbstractEstadisticas crearEstadisticas(AbstractPartido partido, RolJugador jugador) {
-		return new EstadisticasFutbol(partido, jugador);
+	public AbstractEstadisticas crearEstadisticas() {
+		return new EstadisticasFutbol();
 	}
 
 	@Override

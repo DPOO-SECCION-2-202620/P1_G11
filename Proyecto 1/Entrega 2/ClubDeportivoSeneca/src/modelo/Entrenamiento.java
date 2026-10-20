@@ -8,24 +8,27 @@ public class Entrenamiento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private RolEntrenador entrenador;
+	private Entrenador entrenador;
 
 	private Cancha cancha;
 
 	private String fecha;
 
-	private int hora;
+	private int horaInicio;
 
-	private int duracion;
+	private int horaFin;
+
+	private boolean activo;
 
 	private List<AsistenciaEntreno> convocados;
 
-	public Entrenamiento(RolEntrenador entrenador, Cancha cancha, String fecha, int hora, int duracion) {
+	public Entrenamiento(Entrenador entrenador, Cancha cancha, String fecha, int horaInicio, int horaFin) {
 		this.entrenador = entrenador;
 		this.cancha = cancha;
 		this.fecha = fecha;
-		this.hora = hora;
-		this.duracion = duracion;
+		this.horaInicio = horaInicio;
+		this.horaFin = horaFin;
+		this.activo = true;
 		this.convocados = new ArrayList<>();
 	}
 
@@ -33,38 +36,26 @@ public class Entrenamiento implements Serializable {
 		return convocados;
 	}
 
-	public void convocar(RolJugador jugador) {
+	public void convocar(Jugador jugador) {
 		// TODO: RF-ENT-01, D-20: crear su AsistenciaEntreno
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public void registrarAsistencia(RolJugador jugador, EstadoAsistencia estado) {
+	public void registrarAsistencia(Jugador jugador, EstadoAsistencia estado) {
 		// TODO: RF-ENT-03
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public void registrarEvaluacion(RolJugador jugador, int nota, String comentario) {
+	public void registrarEvaluacion(Jugador jugador, int nota, String comentario) {
 		// TODO: RF-ENT-04
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public String getFecha() {
-		return fecha;
+	public void cancelar() {
+		activo = false;
 	}
 
-	public int getHora() {
-		return hora;
-	}
-
-	public int getDuracion() {
-		return duracion;
-	}
-
-	public RolEntrenador getEntrenador() {
-		return entrenador;
-	}
-
-	public Cancha getCancha() {
-		return cancha;
+	public boolean estaActivo() {
+		return activo;
 	}
 }

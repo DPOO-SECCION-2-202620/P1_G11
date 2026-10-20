@@ -12,7 +12,7 @@ public abstract class AbstractPartido implements Serializable {
 
 	private AbstractDeporte deporte;
 
-	private Map<RolJugador, AbstractEstadisticas> estadisticas;
+	private Map<Jugador, AbstractEstadisticas> estadisticas;
 
 	protected AbstractPartido(String fecha, AbstractDeporte deporte) {
 		this.fecha = fecha;
@@ -24,19 +24,10 @@ public abstract class AbstractPartido implements Serializable {
 		return deporte;
 	}
 
-	public AbstractEstadisticas registrarEstadisticas(RolJugador jugador) {
-	
-		AbstractEstadisticas est = deporte.crearEstadisticas(this, jugador);
+	public AbstractEstadisticas registrarEstadisticas(Jugador jugador) {
+		AbstractEstadisticas est = deporte.crearEstadisticas();
 		estadisticas.put(jugador, est);
-		
+
 		return est;
-	}
-
-	public String getFecha() {
-		return fecha;
-	}
-
-	public Map<RolJugador, AbstractEstadisticas> getEstadisticas() {
-		return estadisticas;
 	}
 }

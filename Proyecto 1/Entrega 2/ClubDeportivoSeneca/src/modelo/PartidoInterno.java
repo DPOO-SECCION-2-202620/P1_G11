@@ -8,17 +8,9 @@ public class PartidoInterno extends AbstractPartidoEquipos {
 
 	private Equipo visitante;
 
-	public PartidoInterno(String fecha, Equipo local, Equipo visitante) {
-		super(fecha, local.getDeporte());
+	public PartidoInterno(String fecha, DepConjunto deporte, Equipo local, Equipo visitante) {
+		super(fecha, deporte);
 		this.local = local;
 		this.visitante = visitante;
-	}
-
-	public Equipo getLocal() {
-		return local;
-	}
-
-	public Equipo getVisitante() {
-		return visitante;
 	}
 }

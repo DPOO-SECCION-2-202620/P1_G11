@@ -12,8 +12,4 @@ public class Snack extends Articulo {
 		super(nombre, categoria, precio);
 		this.alergenos = alergenos;
 	}
-
-	public List<String> getAlergenos() {
-		return alergenos;
-	}
 }

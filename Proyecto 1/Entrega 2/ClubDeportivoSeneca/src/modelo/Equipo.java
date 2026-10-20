@@ -2,7 +2,9 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Equipo implements Serializable {
 
@@ -18,7 +20,7 @@ public class Equipo implements Serializable {
 
 	private DepConjunto deporte;
 
-	private List<InfoJugador> jugadores;
+	private Map<Jugador, InfoJugador> jugadores;
 
 	public Equipo(String nombre, DepConjunto deporte, Categoria categoria, int maxJugadores) {
 		this.nombre = nombre;
@@ -26,76 +28,53 @@ public class Equipo implements Serializable {
 		this.maxJugadores = maxJugadores;
 		this.activo = true;
 		this.deporte = deporte;
-		this.jugadores = new ArrayList<>();
+		this.jugadores = new HashMap<>();
 	}
 
-	public DepConjunto getDeporte() {
-		return deporte;
-	}
-
-	public List<InfoJugador> getJugadores() {
-		return jugadores;
-	}
-
-	public InfoJugador inscribirJugador(RolJugador jugador, String posicion, int numeroCamisa) {
+	public InfoJugador inscribirJugador(Jugador jugador, String posicion, int numeroCamisa) {
 		if (!activo) {
 			throw new IllegalStateException("El equipo se encuentra inactivo");
 		}
 		if (jugadores.size() >= maxJugadores) {
 			throw new IllegalStateException("El equipo esta lleno");
 		}
-		for (InfoJugador info : jugadores) {
-			if (info.getNumeroCamisa() == numeroCamisa) {
-				throw new IllegalStateException("Este numero de camisa ya se encuentra ocupado");
-			}
+		if (jugadores.containsKey(jugador)) {
+			throw new IllegalArgumentException("El jugador ya esta en el equipo");
 		}
-		if (!categoria.admiteEdad(jugador.getPersona().getEdad())) {
-			throw new IllegalStateException("La edad del jugador no se incluye en la categoria del equipo");
-		};
+		// RN-05 (camiseta unica): en este UML InfoJugador no tiene getNumeroCamisa, no se puede validar
+		if (!categoria.admiteEdad(jugador.getEdad())) {
+			throw new IllegalArgumentException("La edad del jugador no se incluye en la categoria del equipo");
+		}
 		if (!deporte.getPosicionesValidas().contains(posicion)) {
-			throw new IllegalStateException("La posicion del jugador no se encuentra entre las validas para el deporte");	
-		};
-
-		for (InfoJugador info : jugador.getInfoEquipos()) {
-			if (info.getEquipo().getDeporte().equals(deporte) && info.getEquipo().isActivo()) {
-				throw new IllegalStateException("El jugador ya pertenece a un equipo de este deporte");
-			}
+			throw new IllegalArgumentException("La posicion del jugador no se encuentra entre las validas para el deporte");
 		}
+		// RN-03 (un equipo por deporte) la valida GestorDeportivo con getEquiposDe
 
-		//Paso las comprobaciones
-
-		InfoJugador infoJ = new InfoJugador(jugador, this, posicion, numeroCamisa);
-		jugadores.add(infoJ);
-		jugador.agregarInfoEquipo(infoJ);
+		InfoJugador infoJ = new InfoJugador(posicion, numeroCamisa);
+		jugadores.put(jugador, infoJ);
 
 		return infoJ;
 	}
 
-	public void retirarJugador(RolJugador jugador) {
-		for (InfoJugador infoJ : jugadores) {
-			if (infoJ.getJugador() == jugador) {
-				jugadores.remove(infoJ);
-				jugador.quitarInfoEquipo(infoJ);
-				return;
-			}
+	public void retirarJugador(Jugador jugador) {
+		if (jugadores.remove(jugador) == null) {
+			throw new IllegalArgumentException("El jugador no se encuentra en el equipo");
 		}
-
-		throw new IllegalArgumentException("El jugador no se encuentra en el equipo");
 	}
 
 	public void darDeBaja() {
 		activo = false;
 	}
 
-	public boolean isActivo() {
-		return activo;
+	public InfoJugador getInfo(Jugador jugador) {
+		return jugadores.get(jugador);
 	}
 
-	public String getNombre() {
-		return nombre;
+	public List<Jugador> getJugadores() {
+		return new ArrayList<>(jugadores.keySet());
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public List<InfoJugador> getInfoJugadores() {
+		return new ArrayList<>(jugadores.values());
 	}
 }

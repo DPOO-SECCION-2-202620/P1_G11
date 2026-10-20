@@ -4,8 +4,6 @@ public class PartidoCompetencia extends AbstractPartidoEquipos {
 
 	private static final long serialVersionUID = 1L;
 
-	private AbstractCompetencia competencia;
-
 	private Equipo equipoClub;
 
 	private String equipoExterno;
@@ -14,9 +12,8 @@ public class PartidoCompetencia extends AbstractPartidoEquipos {
 
 	private Fase fase;
 
-	public PartidoCompetencia(AbstractCompetencia competencia, Equipo equipoClub, String equipoExterno, String lugar, String fecha, Fase fase) {
-		super(fecha, competencia.getDeporte());
-		this.competencia = competencia;
+	public PartidoCompetencia(String fecha, DepConjunto deporte, Equipo equipoClub, String equipoExterno, String lugar, Fase fase) {
+		super(fecha, deporte);
 		this.equipoClub = equipoClub;
 		this.equipoExterno = equipoExterno;
 		this.lugar = lugar;
@@ -25,19 +22,7 @@ public class PartidoCompetencia extends AbstractPartidoEquipos {
 
 	@Override
 	public void registrarResultado(int local, int visitante) {
-		// TODO: D-14: además sumar los puntos al equipo del club en su participación
+		// TODO: D-14: super.registrarResultado(...); los puntos de la participacion los suma GestorDeportivo (competenciaDe)
 		throw new UnsupportedOperationException("Pendiente");
-	}
-
-	public AbstractCompetencia getCompetencia() {
-		return competencia;
-	}
-
-	public Equipo getEquipoClub() {
-		return equipoClub;
-	}
-
-	public String getEquipoExterno() {
-		return equipoExterno;
 	}
 }

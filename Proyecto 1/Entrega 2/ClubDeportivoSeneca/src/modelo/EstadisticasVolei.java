@@ -4,29 +4,12 @@ public class EstadisticasVolei extends AbstractEstadisticas {
 
 	private static final long serialVersionUID = 1L;
 
-	private int aces;
+	private int Aces;
 
-	private int bloqueos;
+	private int Bloqueos;
 
-	public EstadisticasVolei(AbstractPartido partido, RolJugador jugador) {
-		super(partido, jugador);
-		this.aces = 0;
-		this.bloqueos = 0;
-	}
-
-	public int getAces() {
-		return aces;
-	}
-
-	public int getBloqueos() {
-		return bloqueos;
-	}
-
-	public void setAces(int aces) {
-		this.aces = aces;
-	}
-
-	public void setBloqueos(int bloqueos) {
-		this.bloqueos = bloqueos;
+	public EstadisticasVolei() {
+		this.Aces = 0;
+		this.Bloqueos = 0;
 	}
 }

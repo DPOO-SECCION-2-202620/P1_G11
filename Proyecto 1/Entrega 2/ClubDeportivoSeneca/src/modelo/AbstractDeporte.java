@@ -8,13 +8,20 @@ public abstract class AbstractDeporte implements Serializable {
 
 	private String nombre;
 
-	protected AbstractDeporte(String nombre) {
+	private int maxSimultaneas;
+
+	protected AbstractDeporte(String nombre, int maxSimultaneas) {
 		this.nombre = nombre;
+		this.maxSimultaneas = maxSimultaneas;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public abstract AbstractEstadisticas crearEstadisticas(AbstractPartido partido, RolJugador jugador);
+	public int getMaxSimultaneas() {
+		return maxSimultaneas;
+	}
+
+	public abstract AbstractEstadisticas crearEstadisticas();
 }

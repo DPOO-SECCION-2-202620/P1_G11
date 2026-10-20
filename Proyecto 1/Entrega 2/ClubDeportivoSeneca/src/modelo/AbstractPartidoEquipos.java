@@ -11,7 +11,7 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 
 	private int marcadorVisitante;
 
-	private List<RolJugador> alineacion;
+	private List<Jugador> alineacion;
 
 	protected AbstractPartidoEquipos(String fecha, DepConjunto deporte) {
 		super(fecha, deporte);
@@ -20,12 +20,16 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 		this.alineacion = new ArrayList<>();
 	}
 
-	public void registrarAlineacion(Equipo equipo, List<RolJugador> jugadores) {
+	public void registrarAlineacion(Equipo equipo, List<Jugador> jugadores) {
 		if (jugadores.size() < ((DepConjunto) getDeporte()).getMinJugadores()) {
 			throw new IllegalArgumentException("Cantidad de jugadores insuficiente");
 		}
-		for (InfoJugador inforJ : equipo.getJugadores()) {
-			if (jugadores.contains(inforJ.getJugador()) && inforJ.isSuspendido()) {
+		for (Jugador j : jugadores) {
+			InfoJugador inforJ = equipo.getInfo(j);
+			if (inforJ == null) {
+				throw new IllegalArgumentException(j.getNombre() + " no pertenece al equipo");
+			}
+			if (inforJ.isSuspendido()) {
 				throw new IllegalArgumentException("Hay un jugador suspendido en la alineacion");
 			}
 		}
@@ -41,17 +45,5 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 		}
 		marcadorLocal = local;
 		marcadorVisitante = visitante;
-	}
-
-	public int getMarcadorLocal() {
-		return marcadorLocal;
-	}
-
-	public int getMarcadorVisitante() {
-		return marcadorVisitante;
-	}
-
-	public List<RolJugador> getAlineacion() {
-		return alineacion;
 	}
 }

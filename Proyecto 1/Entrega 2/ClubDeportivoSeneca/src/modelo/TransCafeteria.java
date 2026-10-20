@@ -8,8 +8,8 @@ public class TransCafeteria extends AbstractTransaccion {
 
 	private double propina;
 
-	public TransCafeteria(Persona comprador, String fecha, double descuento, int puntosRedimidos, double propina) {
-		super(comprador, fecha, descuento, puntosRedimidos);
+	public TransCafeteria(String fecha, double descuento, int puntosRedimidos, double propina) {
+		super(fecha, descuento, puntosRedimidos);
 		this.propina = propina;
 	}
 

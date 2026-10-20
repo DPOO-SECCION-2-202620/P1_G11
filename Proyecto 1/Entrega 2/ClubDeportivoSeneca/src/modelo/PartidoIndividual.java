@@ -6,17 +6,13 @@ public class PartidoIndividual extends AbstractPartido {
 
 	private Reserva reserva;
 
-	public PartidoIndividual(Reserva reserva) {
-		super(reserva.getFecha(), reserva.getCancha().getDeporte());
+	public PartidoIndividual(String fecha, DepIndividual deporte, Reserva reserva) {
+		super(fecha, deporte);
 		this.reserva = reserva;
 	}
 
 	public void actualizarRankings() {
 		// TODO: D-17: ganador por sets, +1 / -1, nunca negativo
 		throw new UnsupportedOperationException("Pendiente");
-	}
-
-	public Reserva getReserva() {
-		return reserva;
 	}
 }

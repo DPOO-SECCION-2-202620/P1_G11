@@ -6,13 +6,13 @@ public class JugadorNomina implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private RolJugador jugador;
+	private Jugador jugador;
 
 	private int amarillasAcumuladas;
 
 	private boolean suspendido;
 
-	public JugadorNomina(RolJugador jugador) {
+	public JugadorNomina(Jugador jugador) {
 		this.jugador = jugador;
 		this.amarillasAcumuladas = 0;
 		this.suspendido = false;
@@ -32,9 +32,5 @@ public class JugadorNomina implements Serializable {
 
 	public void setSuspendido(boolean suspendido) {
 		this.suspendido = suspendido;
-	}
-
-	public RolJugador getJugador() {
-		return jugador;
 	}
 }

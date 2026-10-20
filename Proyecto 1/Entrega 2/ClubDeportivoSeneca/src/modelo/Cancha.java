@@ -16,50 +16,42 @@ public class Cancha implements Serializable {
 
 	private AbstractDeporte deporte;
 
-	private List<Reserva> reservas;
-
-	private List<Entrenamiento> entrenamientos;
+	private List<Ocupacion> ocupaciones;
 
 	public Cancha(int id, boolean techada, int capacidad, AbstractDeporte deporte) {
 		this.id = id;
 		this.techada = techada;
 		this.capacidad = capacidad;
 		this.deporte = deporte;
-		this.reservas = new ArrayList<>();
-		this.entrenamientos = new ArrayList<>();
+		this.ocupaciones = new ArrayList<>();
 	}
 
-	public AbstractDeporte getDeporte() {
-		return deporte;
+	public List<Ocupacion> getOcupaciones() {
+		return ocupaciones;
 	}
 
-	public boolean estaDisponible(String fecha, int inicio, int fin) {
-		// TODO: D-18: revisar reservas y entrenamientos
+	public boolean estaDisponible(String fecha, int horaInicio, int horaFin) {
+		// TODO: ninguna ocupacion seCruza
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public void agregarReserva(Reserva reserva) {
-		reservas.add(reserva);
-	}
-
-	public void cancelarReserva(Reserva reserva) {
-		// TODO: RF-SOC-05
+	public void ocupar(String fecha, int horaInicio, int horaFin) {
+		// TODO: validar disponible y agregar Ocupacion
 		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public void agregarEntrenamiento(Entrenamiento entrenamiento) {
-		entrenamientos.add(entrenamiento);
+	public void liberar(String fecha, int horaInicio, int horaFin) {
+		// TODO: quitar la Ocupacion de ese bloque
+		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public boolean isTechada() {
-		return techada;
+	public boolean tieneCapacidadPara(int cantidad) {
+		// TODO: cantidad <= capacidad
+		throw new UnsupportedOperationException("Pendiente");
 	}
 
-	public List<Reserva> getReservas() {
-		return reservas;
-	}
-
-	public List<Entrenamiento> getEntrenamientos() {
-		return entrenamientos;
+	public boolean permiteBebidaCaliente() {
+		// TODO: RN-12: no si es padel o tenis de mesa techada
+		throw new UnsupportedOperationException("Pendiente");
 	}
 }

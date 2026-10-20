@@ -6,13 +6,13 @@ public class Baloncesto extends DepConjunto {
 
 	private static final long serialVersionUID = 1L;
 
-	public Baloncesto() {
-		super("Baloncesto");
+	public Baloncesto(int maxSimultaneas) {
+		super("Baloncesto", maxSimultaneas);
 	}
 
 	@Override
-	public AbstractEstadisticas crearEstadisticas(AbstractPartido partido, RolJugador jugador) {
-		return new EstadisticasBasket(partido, jugador);
+	public AbstractEstadisticas crearEstadisticas() {
+		return new EstadisticasBasket();
 	}
 
 	@Override
