@@ -32,6 +32,6 @@ public class Ocupacion implements Serializable {
 
 	public boolean seCruza(String fecha, int horaInicio, int horaFin) {
 		// TODO: misma fecha y a < d && c < b
-		throw new UnsupportedOperationException("Pendiente");
+		return this.fecha.equals(fecha) && this.horaInicio < horaFin && horaInicio < this.horaFin;
 	}
 }
