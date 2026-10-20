@@ -1,11 +1,14 @@
 package modelo;
+import java.lang.Math;
 
 public enum Nivel {
 
 	PRINCIPIANTE, INTERMEDIO, AVANZADO;
 
 	public boolean esAdyacente(Nivel otro) {
-		// TODO: D-16, RN-10
-		throw new UnsupportedOperationException("Pendiente");
+		int diff = Math.abs(this.ordinal() - otro.ordinal());
+		if (diff == 1 || diff == 0) {
+			return true;
+		} else {return false;}
 	}
 }

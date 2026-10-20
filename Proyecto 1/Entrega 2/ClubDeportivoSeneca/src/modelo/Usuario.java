@@ -26,9 +26,12 @@ public abstract class Usuario implements Serializable {
 		return nombre;
 	}
 
-	public boolean autenticar(String password) {
-		// TODO: RF-GEN-01, D-05
-		throw new UnsupportedOperationException("Pendiente");
+	public boolean autenticar(String i_password) {
+		if (i_password == password) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public abstract boolean estaActivo();
