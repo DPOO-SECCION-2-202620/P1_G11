@@ -47,4 +47,24 @@ public class Entrenamiento implements Serializable {
 		// TODO: RF-ENT-04
 		throw new UnsupportedOperationException("Pendiente");
 	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public int getHora() {
+		return hora;
+	}
+
+	public int getDuracion() {
+		return duracion;
+	}
+
+	public RolEntrenador getEntrenador() {
+		return entrenador;
+	}
+
+	public Cancha getCancha() {
+		return cancha;
+	}
 }

@@ -36,4 +36,20 @@ public abstract class AbstractTransaccion implements Serializable {
 	}
 
 	public abstract double calcularTotal();
+
+	public Persona getComprador() {
+		return comprador;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public double getDescuento() {
+		return descuento;
+	}
+
+	public int getPuntosRedimidos() {
+		return puntosRedimidos;
+	}
 }

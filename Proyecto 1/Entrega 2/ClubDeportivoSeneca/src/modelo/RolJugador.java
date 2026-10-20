@@ -25,6 +25,10 @@ public class RolJugador extends Rol {
 		equipos.add(info);
 	}
 
+	public void quitarInfoEquipo(InfoJugador info) {
+		equipos.remove(info);
+	}
+
 	public List<InfoJugador> getInfoEquipos() {
 		return equipos;
 	}

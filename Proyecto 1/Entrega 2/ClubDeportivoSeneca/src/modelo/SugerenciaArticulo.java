@@ -31,4 +31,20 @@ public class SugerenciaArticulo implements Serializable {
 	public void setEstado(EstadoSolicitud estado) {
 		this.estado = estado;
 	}
+
+	public RolEmpleado getProponente() {
+		return proponente;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
 }

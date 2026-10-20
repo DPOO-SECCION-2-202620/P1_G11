@@ -36,4 +36,16 @@ public class AsistenciaEntreno implements Serializable {
 		this.nota = nota;
 		this.comentario = comentario;
 	}
+
+	public RolJugador getJugador() {
+		return jugador;
+	}
+
+	public int getNota() {
+		return nota;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
 }

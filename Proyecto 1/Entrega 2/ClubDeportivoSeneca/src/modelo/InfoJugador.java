@@ -24,6 +24,18 @@ public class InfoJugador implements Serializable {
 		this.suspendido = false;
 	}
 
+	public RolJugador getJugador() {
+		return jugador;
+	}
+
+	public Equipo getEquipo() {
+		return equipo;
+	}
+
+	public int getNumeroCamisa() {
+		return numeroCamisa;
+	}
+
 	public boolean isSuspendido() {
 		return suspendido;
 	}

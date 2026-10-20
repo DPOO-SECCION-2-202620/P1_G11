@@ -39,7 +39,19 @@ public class InscripcionDisciplina implements Serializable {
 	}
 
 	public void actualizarRanking(int nuevo) {
-		// TODO: D-16/D-17: cambia el valor, lo agrega al historial, nunca negativo
-		throw new UnsupportedOperationException("Pendiente");
+		if (nuevo < 0) {
+			ranking = 0;
+		} else {
+			ranking = nuevo;
+		}
+		
+	}
+
+	public RolJugador getJugador() {
+		return jugador;
+	}
+
+	public DepIndividual getDeporte() {
+		return deporte;
 	}
 }

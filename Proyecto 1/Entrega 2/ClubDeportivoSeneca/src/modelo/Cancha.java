@@ -50,4 +50,16 @@ public class Cancha implements Serializable {
 	public void agregarEntrenamiento(Entrenamiento entrenamiento) {
 		entrenamientos.add(entrenamiento);
 	}
+
+	public boolean isTechada() {
+		return techada;
+	}
+
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public List<Entrenamiento> getEntrenamientos() {
+		return entrenamientos;
+	}
 }

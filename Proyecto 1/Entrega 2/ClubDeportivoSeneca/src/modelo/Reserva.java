@@ -35,4 +35,16 @@ public class Reserva implements Serializable {
 	public String getFecha() {
 		return fecha;
 	}
+
+	public int getHoraInicio() {
+		return horaInicio;
+	}
+
+	public int getHoraFin() {
+		return horaFin;
+	}
+
+	public List<RolJugador> getJugadores() {
+		return jugadores;
+	}
 }

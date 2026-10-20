@@ -13,4 +13,12 @@ public class PartidoInterno extends AbstractPartidoEquipos {
 		this.local = local;
 		this.visitante = visitante;
 	}
+
+	public Equipo getLocal() {
+		return local;
+	}
+
+	public Equipo getVisitante() {
+		return visitante;
+	}
 }

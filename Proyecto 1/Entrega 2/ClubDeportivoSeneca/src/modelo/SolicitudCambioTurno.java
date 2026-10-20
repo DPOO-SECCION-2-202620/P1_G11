@@ -31,4 +31,16 @@ public class SolicitudCambioTurno implements Serializable {
 	public void setEstado(EstadoSolicitud estado) {
 		this.estado = estado;
 	}
+
+	public RolEmpleado getEmpleado() {
+		return empleado;
+	}
+
+	public TurnoEmpleado getTurnoActual() {
+		return turnoActual;
+	}
+
+	public TurnoEmpleado getTurnoNuevo() {
+		return turnoNuevo;
+	}
 }

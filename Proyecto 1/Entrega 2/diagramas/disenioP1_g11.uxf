@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>7826</x>
-      <y>1580</y>
+      <x>7905</x>
+      <y>1750</y>
       <w>360</w>
       <h>270</h>
     </coordinates>
@@ -32,7 +32,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>6243</x>
-      <y>910</y>
+      <y>1020</y>
       <w>650</w>
       <h>110</h>
     </coordinates>
@@ -49,7 +49,7 @@ AbstractDeporte
     <id>UMLClass</id>
     <coordinates>
       <x>1942</x>
-      <y>1075</y>
+      <y>1220</y>
       <w>300</w>
       <h>160</h>
     </coordinates>
@@ -69,7 +69,7 @@ DepConjunto
     <id>UMLClass</id>
     <coordinates>
       <x>5122</x>
-      <y>1115</y>
+      <y>1260</y>
       <w>320</w>
       <h>80</h>
     </coordinates>
@@ -84,9 +84,9 @@ DepIndividual
     <id>UMLClass</id>
     <coordinates>
       <x>2944</x>
-      <y>1315</y>
+      <y>1460</y>
       <w>630</w>
-      <h>190</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Equipo
 --
@@ -99,16 +99,19 @@ DepIndividual
 +retirarJugador(jugador: RolJugador): void
 +darDeBaja(): void
 +getJugadores(): List&lt;InfoJugador&gt;
-+getDeporte(): DepConjunto</panel_attributes>
++getDeporte(): DepConjunto
++isActivo(): boolean
++getNombre(): String
++getCategoria(): Categoria</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2848</x>
-      <y>1660</y>
+      <y>1820</y>
       <w>270</w>
-      <h>110</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>ParticipacionCompe
 --
@@ -116,14 +119,15 @@ DepIndividual
 --
 +sumarPuntos(puntos: int): void
 +getPuntosAcumulados(): int
-+getNomina(): List&lt;JugadorNomina&gt;</panel_attributes>
++getNomina(): List&lt;JugadorNomina&gt;
++getEquipo(): Equipo</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2448</x>
-      <y>1300</y>
+      <y>1470</y>
       <w>460</w>
       <h>220</h>
     </coordinates>
@@ -146,37 +150,42 @@ AbstractCompetencia
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>5019</x>
-      <y>2020</y>
-      <w>130</w>
-      <h>50</h>
+      <x>4994</x>
+      <y>2175</y>
+      <w>180</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>PartidoInterno
 --
---</panel_attributes>
+--
++getLocal(): Equipo
++getVisitante(): Equipo</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>4613</x>
-      <y>2000</y>
+      <x>4588</x>
+      <y>2145</y>
       <w>370</w>
-      <h>90</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>PartidoCompetencia
 --
 -equipoExterno: String
 -lugar: String
 --
-+registrarResultado(local: int, visitante: int): void</panel_attributes>
++registrarResultado(local: int, visitante: int): void
++getCompetencia(): AbstractCompetencia
++getEquipoClub(): Equipo
++getEquipoExterno(): String</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>6127</x>
-      <y>1645</y>
+      <y>1815</y>
       <w>300</w>
       <h>140</h>
     </coordinates>
@@ -195,7 +204,7 @@ AbstractCompetencia
     <id>UMLClass</id>
     <coordinates>
       <x>7120</x>
-      <y>1340</y>
+      <y>1510</y>
       <w>250</w>
       <h>140</h>
     </coordinates>
@@ -214,7 +223,7 @@ AbstractCompetencia
     <id>UMLClass</id>
     <coordinates>
       <x>7406</x>
-      <y>1290</y>
+      <y>1460</y>
       <w>280</w>
       <h>240</h>
     </coordinates>
@@ -239,7 +248,7 @@ AbstractCompetencia
     <id>UMLClass</id>
     <coordinates>
       <x>6879</x>
-      <y>1125</y>
+      <y>1270</y>
       <w>170</w>
       <h>60</h>
     </coordinates>
@@ -253,9 +262,9 @@ AbstractEstadisticas
     <id>UMLClass</id>
     <coordinates>
       <x>6328</x>
-      <y>1355</y>
+      <y>1510</y>
       <w>480</w>
-      <h>110</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract&gt;&gt;
 AbstractPartido
@@ -263,14 +272,16 @@ AbstractPartido
 -fecha: String
 --
 +getDeporte(): AbstractDeporte
-+registrarEstadisticas(jugador: RolJugador): AbstractEstadisticas</panel_attributes>
++registrarEstadisticas(jugador: RolJugador): AbstractEstadisticas
++getFecha(): String
++getEstadisticas(): Map&lt;RolJugador,AbstractEstadisticas&gt;</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2056</x>
-      <y>1685</y>
+      <y>1855</y>
       <w>240</w>
       <h>60</h>
     </coordinates>
@@ -284,7 +295,7 @@ AbstractPartido
     <id>UMLClass</id>
     <coordinates>
       <x>2618</x>
-      <y>1690</y>
+      <y>1860</y>
       <w>120</w>
       <h>50</h>
     </coordinates>
@@ -297,9 +308,9 @@ AbstractPartido
     <id>UMLClass</id>
     <coordinates>
       <x>4346</x>
-      <y>1650</y>
+      <y>1800</y>
       <w>310</w>
-      <h>130</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>InfoJugador
 --
@@ -308,14 +319,17 @@ AbstractPartido
 -suspendido: boolean
 --
 +isSuspendido(): boolean
-+setSuspendido(suspendido: boolean): void</panel_attributes>
++setSuspendido(suspendido: boolean): void
++getJugador(): RolJugador
++getEquipo(): Equipo
++getNumeroCamisa(): int</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>20</x>
-      <y>1365</y>
+      <y>1535</y>
       <w>290</w>
       <h>90</h>
     </coordinates>
@@ -331,9 +345,9 @@ AbstractPartido
     <id>UMLClass</id>
     <coordinates>
       <x>7694</x>
-      <y>1070</y>
+      <y>1190</y>
       <w>440</w>
-      <h>170</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>Cancha
 --
@@ -345,14 +359,17 @@ AbstractPartido
 +agregarReserva(reserva: Reserva): void
 +cancelarReserva(reserva: Reserva): void
 +agregarEntrenamiento(entrenamiento: Entrenamiento): void
-+getDeporte(): AbstractDeporte</panel_attributes>
++getDeporte(): AbstractDeporte
++isTechada(): boolean
++getReservas(): List&lt;Reserva&gt;
++getEntrenamientos(): List&lt;Entrenamiento&gt;</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2332</x>
-      <y>1660</y>
+      <y>1830</y>
       <w>250</w>
       <h>110</h>
     </coordinates>
@@ -369,9 +386,9 @@ AbstractPartido
     <id>UMLClass</id>
     <coordinates>
       <x>7722</x>
-      <y>1340</y>
-      <w>180</w>
-      <h>140</h>
+      <y>1485</y>
+      <w>270</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>Reserva
 --
@@ -381,28 +398,32 @@ AbstractPartido
 -cantidadJugadores: int
 --
 +getFecha(): String
-+getCancha(): Cancha</panel_attributes>
++getCancha(): Cancha
++getHoraInicio(): int
++getHoraFin(): int
++getJugadores(): List&lt;RolJugador&gt;</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>6463</x>
-      <y>1685</y>
+      <y>1845</y>
       <w>210</w>
-      <h>60</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>PartidoIndividual
 --
 --
-+actualizarRankings(): void</panel_attributes>
++actualizarRankings(): void
++getReserva(): Reserva</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>6112</x>
-      <y>1380</y>
+      <y>1550</y>
       <w>180</w>
       <h>60</h>
     </coordinates>
@@ -416,7 +437,7 @@ EstadisticasIndividual
     <id>UMLClass</id>
     <coordinates>
       <x>6844</x>
-      <y>1340</y>
+      <y>1510</y>
       <w>240</w>
       <h>140</h>
     </coordinates>
@@ -435,7 +456,7 @@ EstadisticasIndividual
     <id>UMLClass</id>
     <coordinates>
       <x>5691</x>
-      <y>1595</y>
+      <y>1765</y>
       <w>400</w>
       <h>240</h>
     </coordinates>
@@ -460,9 +481,9 @@ EstadisticasIndividual
     <id>UMLClass</id>
     <coordinates>
       <x>5638</x>
-      <y>1330</y>
+      <y>1485</y>
       <w>290</w>
-      <h>160</h>
+      <h>190</h>
     </coordinates>
     <panel_attributes>InscripcionDisciplina
 --
@@ -473,16 +494,18 @@ EstadisticasIndividual
 +getNivel(): Nivel
 +getRanking(): int
 +actualizarRanking(nuevo: int): void
-+getHistorialRanking(): List&lt;Integer&gt;</panel_attributes>
++getHistorialRanking(): List&lt;Integer&gt;
++getJugador(): RolJugador
++getDeporte(): DepIndividual</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9030</x>
-      <y>1085</y>
+      <x>9120</x>
+      <y>1195</y>
       <w>310</w>
-      <h>140</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>SugerenciaArticulo
 --
@@ -492,16 +515,20 @@ EstadisticasIndividual
 -estado: EstadoSolicitud
 --
 +getEstado(): EstadoSolicitud
-+setEstado(estado: EstadoSolicitud): void</panel_attributes>
++setEstado(estado: EstadoSolicitud): void
++getProponente(): RolEmpleado
++getNombre(): String
++getCategoria(): String
++getPrecio(): double</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9207</x>
-      <y>1645</y>
+      <x>9297</x>
+      <y>1790</y>
       <w>370</w>
-      <h>140</h>
+      <h>190</h>
     </coordinates>
     <panel_attributes>AsistenciaEntreno
 --
@@ -511,14 +538,17 @@ EstadisticasIndividual
 --
 +getEstado(): EstadoAsistencia
 +setEstado(estado: EstadoAsistencia): void
-+setEvaluacion(nota: int, comentario: String): void</panel_attributes>
++setEvaluacion(nota: int, comentario: String): void
++getJugador(): RolJugador
++getNota(): int
++getComentario(): String</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8405</x>
-      <y>920</y>
+      <x>8495</x>
+      <y>1030</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
@@ -533,8 +563,8 @@ RolEmpleado
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8415</x>
-      <y>710</y>
+      <x>8505</x>
+      <y>780</y>
       <w>190</w>
       <h>140</h>
     </coordinates>
@@ -553,9 +583,9 @@ Rol
     <id>UMLClass</id>
     <coordinates>
       <x>5777</x>
-      <y>910</y>
+      <y>1010</y>
       <w>430</w>
-      <h>110</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>RolJugador
 --
@@ -563,14 +593,15 @@ Rol
 +agregarInfoEquipo(info: InfoJugador): void
 +getInfoEquipos(): List&lt;InfoJugador&gt;
 +agregarInscripcion(inscripcion: InscripcionDisciplina): void
-+getInscripciones(): List&lt;InscripcionDisciplina&gt;</panel_attributes>
++getInscripciones(): List&lt;InscripcionDisciplina&gt;
++quitarInfoEquipo(info: InfoJugador): void</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8646</x>
-      <y>1125</y>
+      <x>8736</x>
+      <y>1270</y>
       <w>200</w>
       <h>60</h>
     </coordinates>
@@ -583,8 +614,8 @@ Rol
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8410</x>
-      <y>1125</y>
+      <x>8500</x>
+      <y>1270</y>
       <w>200</w>
       <h>60</h>
     </coordinates>
@@ -597,8 +628,8 @@ Rol
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9240</x>
-      <y>1380</y>
+      <x>9330</x>
+      <y>1550</y>
       <w>180</w>
       <h>60</h>
     </coordinates>
@@ -611,10 +642,10 @@ Rol
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8746</x>
-      <y>1355</y>
+      <x>8836</x>
+      <y>1500</y>
       <w>310</w>
-      <h>110</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>SolicitudCambioTurno
 --
@@ -622,60 +653,69 @@ Rol
 -estado: EstadoSolicitud
 --
 +getEstado(): EstadoSolicitud
-+setEstado(estado: EstadoSolicitud): void</panel_attributes>
++setEstado(estado: EstadoSolicitud): void
++getEmpleado(): RolEmpleado
++getTurnoActual(): TurnoEmpleado
++getTurnoNuevo(): TurnoEmpleado</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>8170</x>
-      <y>1110</y>
-      <w>130</w>
-      <h>90</h>
+      <y>1220</y>
+      <w>220</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>TurnoEmpleado
 --
 -dia: DayOfWeek
 -horaInicio: int
 -horaFin: int
---</panel_attributes>
+--
++getEmpleado(): RolEmpleado
++getDia(): DayOfWeek
++getHoraInicio(): int
++getHoraFin(): int</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8728</x>
-      <y>495</y>
-      <w>140</w>
-      <h>60</h>
+      <x>8796</x>
+      <y>525</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Bebida
 --
 -caliente: boolean
---</panel_attributes>
+--
++isCaliente(): boolean</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8502</x>
-      <y>495</y>
-      <w>190</w>
-      <h>60</h>
+      <x>8530</x>
+      <y>525</y>
+      <w>230</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Snack
 --
 -alergenos: List&lt;String&gt;
---</panel_attributes>
+--
++getAlergenos(): List&lt;String&gt;</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8160</x>
-      <y>1330</y>
+      <x>8250</x>
+      <y>1460</y>
       <w>550</w>
-      <h>160</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Entrenamiento
 --
@@ -686,16 +726,21 @@ Rol
 +convocar(jugador: RolJugador): void
 +registrarAsistencia(jugador: RolJugador, estado: EstadoAsistencia): void
 +registrarEvaluacion(jugador: RolJugador, nota: int, comentario: String): void
-+getConvocados(): List&lt;AsistenciaEntreno&gt;</panel_attributes>
++getConvocados(): List&lt;AsistenciaEntreno&gt;
++getFecha(): String
++getHora(): int
++getDuracion(): int
++getEntrenador(): RolEntrenador
++getCancha(): Cancha</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>5451</x>
-      <y>700</y>
+      <y>740</y>
       <w>390</w>
-      <h>160</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract&gt;&gt;
 AbstractTransaccion
@@ -706,14 +751,18 @@ AbstractTransaccion
 --
 +agregarCompra(articulo: Articulo, cantidad: int): void
 +getCompras(): List&lt;Compra&gt;
-/+calcularTotal(): double/</panel_attributes>
+/+calcularTotal(): double/
++getComprador(): Persona
++getFecha(): String
++getDescuento(): double
++getPuntosRedimidos(): int</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>5295</x>
-      <y>920</y>
+      <y>1030</y>
       <w>220</w>
       <h>90</h>
     </coordinates>
@@ -729,7 +778,7 @@ _+IMPUESTO: double = 0.08_
     <id>UMLClass</id>
     <coordinates>
       <x>5551</x>
-      <y>925</y>
+      <y>1035</y>
       <w>190</w>
       <h>80</h>
     </coordinates>
@@ -743,23 +792,26 @@ _+IVA: double = 0.19_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>6896</x>
-      <y>485</y>
-      <w>170</w>
-      <h>80</h>
+      <x>6884</x>
+      <y>500</y>
+      <w>210</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Compra
 --
 -cantidad: int
 -precioXunidad: double
---</panel_attributes>
+--
++getArticulo(): Articulo
++getCantidad(): int
++getPrecioXunidad(): double</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9324</x>
-      <y>180</y>
+      <x>9414</x>
+      <y>200</y>
       <w>290</w>
       <h>170</h>
     </coordinates>
@@ -779,8 +831,8 @@ Usuario
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8970</x>
-      <y>400</y>
+      <x>9060</x>
+      <y>440</y>
       <w>370</w>
       <h>250</h>
     </coordinates>
@@ -806,7 +858,7 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>420</x>
-      <y>1330</y>
+      <y>1500</y>
       <w>640</w>
       <h>160</h>
     </coordinates>
@@ -826,7 +878,7 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>1096</x>
-      <y>1340</y>
+      <y>1510</y>
       <w>640</w>
       <h>140</h>
     </coordinates>
@@ -845,7 +897,7 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>1772</x>
-      <y>1340</y>
+      <y>1510</y>
       <w>640</w>
       <h>140</h>
     </coordinates>
@@ -864,7 +916,7 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>4962</x>
-      <y>1370</y>
+      <y>1540</y>
       <w>640</w>
       <h>80</h>
     </coordinates>
@@ -879,7 +931,7 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>3610</x>
-      <y>1370</y>
+      <y>1540</y>
       <w>640</w>
       <h>80</h>
     </coordinates>
@@ -894,7 +946,7 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>4286</x>
-      <y>1370</y>
+      <y>1540</y>
       <w>640</w>
       <h>80</h>
     </coordinates>
@@ -909,9 +961,9 @@ Usuario
     <id>UMLClass</id>
     <coordinates>
       <x>4829</x>
-      <y>1650</y>
+      <y>1800</y>
       <w>510</w>
-      <h>130</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract&gt;&gt;
 AbstractPartidoEquipos
@@ -920,16 +972,19 @@ AbstractPartidoEquipos
 -marcadorVisitante: int
 --
 +registrarAlineacion(equipo: Equipo, jugadores: List&lt;RolJugador&gt;): void
-+registrarResultado(local: int, visitante: int): void</panel_attributes>
++registrarResultado(local: int, visitante: int): void
++getMarcadorLocal(): int
++getMarcadorVisitante(): int
++getAlineacion(): List&lt;RolJugador&gt;</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>881</x>
-      <y>1085</y>
+      <y>1220</y>
       <w>340</w>
-      <h>140</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>JugadorNomina
 --
@@ -939,14 +994,15 @@ AbstractPartidoEquipos
 +getAmarillasAcumuladas(): int
 +setAmarillasAcumuladas(amarillas: int): void
 +isSuspendido(): boolean
-+setSuspendido(suspendido: boolean): void</panel_attributes>
++setSuspendido(suspendido: boolean): void
++getJugador(): RolJugador</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2849</x>
-      <y>1085</y>
+      <y>1230</y>
       <w>240</w>
       <h>140</h>
     </coordinates>
@@ -965,7 +1021,7 @@ MAYORES
     <id>UMLClass</id>
     <coordinates>
       <x>5594</x>
-      <y>1090</y>
+      <y>1235</y>
       <w>260</w>
       <h>130</h>
     </coordinates>
@@ -982,8 +1038,8 @@ AVANZADO
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9604</x>
-      <y>1355</y>
+      <x>9694</x>
+      <y>1525</y>
       <w>140</w>
       <h>110</h>
     </coordinates>
@@ -999,7 +1055,7 @@ TARDE
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8595</x>
+      <x>8664</x>
       <y>20</y>
       <w>140</w>
       <h>110</h>
@@ -1016,10 +1072,10 @@ CAFETERIA
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8435</x>
-      <y>185</y>
+      <x>8504</x>
+      <y>180</y>
       <w>460</w>
-      <h>160</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>Articulo
 --
@@ -1030,14 +1086,17 @@ CAFETERIA
 --
 +getCantidad(ubicacion: Ubicacion): int
 +mover(origen: Ubicacion, destino: Ubicacion, cantidad: int): void
-+descontar(ubicacion: Ubicacion, cantidad: int): void</panel_attributes>
++descontar(ubicacion: Ubicacion, cantidad: int): void
++getNombre(): String
++getCategoria(): String
++getPrecio(): double</panel_attributes>
     <additional_attributes></additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9010</x>
-      <y>910</y>
+      <x>9100</x>
+      <y>1020</y>
       <w>140</w>
       <h>110</h>
     </coordinates>
@@ -1053,8 +1112,8 @@ RECHAZADA
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>5379</x>
-      <y>2005</y>
+      <x>5402</x>
+      <y>2175</y>
       <w>370</w>
       <h>80</h>
     </coordinates>
@@ -1068,8 +1127,8 @@ _+cargar(ruta: String): ClubDeportivo_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>7676</x>
-      <y>1980</y>
+      <x>7744</x>
+      <y>2150</y>
       <w>610</w>
       <h>130</h>
     </coordinates>
@@ -1086,8 +1145,8 @@ _+cargar(ruta: String): ClubDeportivo_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>9408</x>
-      <y>1900</y>
+      <x>9476</x>
+      <y>2070</y>
       <w>1020</w>
       <h>290</h>
     </coordinates>
@@ -1114,8 +1173,8 @@ _+cargar(ruta: String): ClubDeportivo_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8322</x>
-      <y>1935</y>
+      <x>8390</x>
+      <y>2105</y>
       <w>1050</w>
       <h>220</h>
     </coordinates>
@@ -1138,8 +1197,8 @@ _+cargar(ruta: String): ClubDeportivo_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>5884</x>
-      <y>1960</y>
+      <x>5952</x>
+      <y>2130</y>
       <w>950</w>
       <h>170</h>
     </coordinates>
@@ -1159,8 +1218,8 @@ _+cargar(ruta: String): ClubDeportivo_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>6870</x>
-      <y>1960</y>
+      <x>6938</x>
+      <y>2130</y>
       <w>770</w>
       <h>170</h>
     </coordinates>
@@ -1180,8 +1239,8 @@ _+cargar(ruta: String): ClubDeportivo_</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>8998</x>
-      <y>225</y>
+      <x>9088</x>
+      <y>245</y>
       <w>290</w>
       <h>80</h>
     </coordinates>
@@ -1196,7 +1255,7 @@ bg=yellow</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>5375</x>
-      <y>1685</y>
+      <y>1855</y>
       <w>280</w>
       <h>60</h>
     </coordinates>
@@ -1209,8 +1268,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>8931</x>
-      <y>1685</y>
+      <x>9021</x>
+      <y>1855</y>
       <w>240</w>
       <h>60</h>
     </coordinates>
@@ -1224,20 +1283,20 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2878</x>
-      <y>1510</y>
-      <w>4958</w>
+      <y>1680</y>
+      <w>5037</w>
       <h>92</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
 List&lt;AbstractCompetencia&gt; competencias</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;82.0;4948.3;82.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;82.0;5026.7;82.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2668</x>
-      <y>1510</y>
+      <y>1680</y>
       <w>20</w>
       <h>190</h>
     </coordinates>
@@ -1247,8 +1306,8 @@ List&lt;AbstractCompetencia&gt; competencias</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8008</x>
-      <y>1230</y>
+      <x>8029</x>
+      <y>1400</y>
       <w>20</w>
       <h>360</h>
     </coordinates>
@@ -1261,163 +1320,163 @@ List&lt;Cancha&gt; canchas</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>5359</x>
-      <y>1010</y>
-      <w>919</w>
+      <y>1120</y>
+      <w>907</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>896.8;10.0;896.8;90.1;10.0;90.1;10.0;140.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2232</x>
+      <y>1120</y>
+      <w>4045</w>
       <h>115</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>909.0;10.0;909.0;73.0;10.0;73.0;10.0;105.0</additional_attributes>
+    <additional_attributes>4035.5;10.0;4035.5;105.0;10.0;105.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2232</x>
-      <y>1010</y>
-      <w>4033</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>4023.3;10.0;4023.3;68.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2232</x>
-      <y>1220</y>
+      <y>1365</y>
       <w>770</w>
       <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;760.3;10.0;760.3;95.0</additional_attributes>
+    <additional_attributes>10.0;10.0;760.3;10.0;760.3;95.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8605</x>
-      <y>970</y>
-      <w>74</w>
-      <h>165</h>
+      <x>8695</x>
+      <y>1080</y>
+      <w>63</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;64.1;10.0;64.1;155.0</additional_attributes>
+    <additional_attributes>10.0;10.0;52.6;10.0;52.6;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8466</x>
-      <y>1000</y>
+      <x>8590</x>
+      <y>1110</y>
       <w>20</w>
-      <h>135</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;125.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>4543</x>
-      <y>1010</y>
+      <y>1130</y>
       <w>1477</w>
-      <h>650</h>
+      <h>680</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;InfoJugador&gt; equipos</panel_attributes>
-    <additional_attributes>1466.8;10.0;1466.8;483.0;10.0;483.0;10.0;640.0</additional_attributes>
+    <additional_attributes>1466.8;10.0;1466.8;550.1;10.0;550.1;10.0;670.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>3564</x>
-      <y>1490</y>
+      <y>1685</y>
       <w>895</w>
-      <h>170</h>
+      <h>125</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;InfoJugador&gt; jugadores</panel_attributes>
-    <additional_attributes>10.0;10.0;885.4;12.0;885.4;160.0</additional_attributes>
+    <additional_attributes>10.0;10.0;885.4;10.0;885.4;115.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>6558</x>
-      <y>1151</y>
+      <y>1290</y>
       <w>331</w>
-      <h>214</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
 Map&lt;RolJugador,AbstractEstadisticas&gt; estadisticas</panel_attributes>
-    <additional_attributes>321.0;10.0;10.0;10.0;10.0;204.0</additional_attributes>
+    <additional_attributes>321.0;10.0;10.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>6982</x>
-      <y>1175</y>
+      <y>1320</y>
       <w>434</w>
-      <h>130</h>
+      <h>162</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0;423.8;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;152.0;423.8;152.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>6926</x>
-      <y>1175</y>
+      <y>1320</y>
       <w>20</w>
-      <h>175</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;165.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>7039</x>
-      <y>1145</y>
+      <y>1290</y>
       <w>216</w>
-      <h>205</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;206.2;10.0;206.2;195.0</additional_attributes>
+    <additional_attributes>10.0;10.0;206.2;10.0;206.2;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>3260</x>
-      <y>1495</y>
-      <w>1812</w>
-      <h>535</h>
+      <y>1690</y>
+      <w>1804</w>
+      <h>495</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=2
 local, visitante</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;346.0;1802.3;346.0;1802.3;525.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;321.0;1794.0;321.0;1794.0;485.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>3564</x>
-      <y>1486</y>
-      <w>1217</w>
-      <h>524</h>
+      <y>1675</y>
+      <w>1189</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 equipoClub</panel_attributes>
-    <additional_attributes>10.0;10.0;1207.4;10.0;1207.4;514.0</additional_attributes>
+    <additional_attributes>10.0;10.0;1178.6;10.0;1178.6;470.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2166</x>
-      <y>1495</y>
+      <y>1665</y>
       <w>292</w>
       <h>200</h>
     </coordinates>
@@ -1427,58 +1486,58 @@ equipoClub</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2898</x>
-      <y>1503</y>
-      <w>1826</w>
-      <h>507</h>
+      <x>2783</x>
+      <y>1680</y>
+      <w>1815</w>
+      <h>522</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;PartidoCompetencia&gt; partidos</panel_attributes>
-    <additional_attributes>10.0;10.0;1815.7;10.0;1815.7;497.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;512.0;1805.0;512.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>6173</x>
-      <y>1010</y>
-      <w>716</w>
-      <h>137</h>
+      <x>6197</x>
+      <y>1125</y>
+      <w>697</w>
+      <h>155</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;127.0;705.8;127.0</additional_attributes>
+    <additional_attributes>10.0;10.0;686.6;12.1;687.0;145.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>6678</x>
-      <y>1163</y>
+      <y>1305</y>
       <w>211</w>
-      <h>202</h>
+      <h>215</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;192.0;10.0;10.0;201.0;10.0</additional_attributes>
+    <additional_attributes>10.0;205.0;10.0;10.0;201.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2132</x>
-      <y>1225</y>
-      <w>326</w>
-      <h>100</h>
+      <x>2157</x>
+      <y>1370</y>
+      <w>301</w>
+      <h>125</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0;316.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;115.0;291.0;115.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>155</x>
-      <y>1445</y>
+      <y>1615</y>
       <w>1911</w>
       <h>280</h>
     </coordinates>
@@ -1491,45 +1550,45 @@ List&lt;Fase&gt; fases</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>83</x>
-      <y>1445</y>
-      <w>4540</w>
-      <h>610</h>
+      <y>1615</y>
+      <w>4516</w>
+      <h>633</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;600.0;4530.5;600.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;623.0;4505.5;623.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2858</x>
-      <y>1510</y>
+      <y>1680</y>
       <w>20</w>
-      <h>160</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;ParticipacionCompe&gt; participaciones</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3050</x>
-      <y>1495</y>
+      <x>3021</x>
+      <y>1690</y>
       <w>20</w>
-      <h>175</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;165.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>228</x>
-      <y>1445</y>
+      <y>1615</y>
       <w>2114</w>
       <h>237</h>
     </coordinates>
@@ -1543,70 +1602,70 @@ participacion</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2505</x>
-      <y>1495</y>
-      <w>507</w>
-      <h>175</h>
+      <y>1685</y>
+      <w>449</w>
+      <h>155</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>497.0;10.0;497.0;30.0;10.0;30.0;10.0;165.0</additional_attributes>
+    <additional_attributes>439.0;10.0;10.0;10.0;10.0;145.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>6876</x>
-      <y>1010</y>
-      <w>828</w>
-      <h>80</h>
+      <x>6878</x>
+      <y>1120</y>
+      <w>826</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;818.1;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.3;80.1;816.0;80.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>7832</x>
-      <y>1230</y>
+      <x>7847</x>
+      <y>1400</y>
       <w>20</w>
-      <h>120</h>
+      <h>95</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;Reserva&gt; reservas</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;85.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>6126</x>
-      <y>1010</y>
-      <w>1667</w>
-      <h>340</h>
+      <x>6197</x>
+      <y>1125</y>
+      <w>1535</w>
+      <h>465</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1..*
 List&lt;RolJugador&gt; jugadores</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;268.0;1656.6;268.0;1656.6;330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;1493.1;10.0;1493.1;455.1;1525.2;455.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>6663</x>
-      <y>1470</y>
-      <w>1121</w>
-      <h>255</h>
+      <y>1665</y>
+      <w>1080</w>
+      <h>230</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>1110.6;10.0;1110.6;245.0;10.0;245.0</additional_attributes>
+    <additional_attributes>1070.3;10.0;1070.3;220.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>6199</x>
-      <y>1430</y>
+      <y>1600</y>
       <w>20</w>
       <h>225</h>
     </coordinates>
@@ -1617,7 +1676,7 @@ m1=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>6081</x>
-      <y>1430</y>
+      <y>1600</y>
       <w>48</w>
       <h>200</h>
     </coordinates>
@@ -1628,662 +1687,49 @@ m1=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>5881</x>
-      <y>1010</y>
+      <y>1130</y>
       <w>20</w>
-      <h>330</h>
+      <h>365</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;InscripcionDisciplina&gt; inscripciones</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;355.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8700</x>
-      <y>1467</y>
-      <w>528</w>
-      <h>188</h>
+      <x>8790</x>
+      <y>1670</y>
+      <w>533</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;AsistenciaEntreno&gt; convocados</panel_attributes>
-    <additional_attributes>10.0;10.0;517.6;10.0;517.6;178.0</additional_attributes>
+    <additional_attributes>10.0;10.0;523.4;10.0;523.4;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8124</x>
-      <y>1223</y>
-      <w>51</w>
-      <h>117</h>
+      <x>8077</x>
+      <y>1400</y>
+      <w>183</w>
+      <h>82</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=1
 m2=0..*
 List&lt;Entrenamiento&gt; entrenamientos</panel_attributes>
-    <additional_attributes>10.0;10.0;40.6;10.0;41.3;107.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;72.0;173.5;72.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8668</x>
-      <y>1175</y>
-      <w>20</w>
-      <h>165</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;155.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8605</x>
-      <y>940</y>
-      <w>262</w>
-      <h>425</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;252.0;10.0;252.0;415.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8290</x>
-      <y>1180</y>
-      <w>532</w>
-      <h>185</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1
-turnoActual</panel_attributes>
-    <additional_attributes>10.0;10.0;522.4;10.0;522.4;175.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5473</x>
-      <y>850</y>
-      <w>20</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5636</x>
-      <y>850</y>
-      <w>20</w>
-      <h>85</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;75.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5831</x>
-      <y>555</y>
-      <w>1152</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;Compra&gt; compras</panel_attributes>
-    <additional_attributes>1141.5;10.0;1141.5;148.0;10.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>7056</x>
-      <y>335</y>
-      <w>1422</w>
-      <h>165</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>1412.4;10.0;1412.4;155.0;10.0;155.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8788</x>
-      <y>335</y>
-      <w>20</w>
-      <h>170</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8587</x>
-      <y>335</y>
-      <w>20</w>
-      <h>170</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8144</x>
-      <y>1203</y>
-      <w>896</w>
-      <h>387</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*</panel_attributes>
-    <additional_attributes>886.0;10.0;10.0;10.0;10.0;377.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6014</x>
-      <y>770</y>
-      <w>2411</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>2401.2;10.0;10.0;10.0;10.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8500</x>
-      <y>840</y>
-      <w>20</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>9322</x>
-      <y>340</y>
-      <w>20</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>9370</x>
-      <y>340</y>
-      <w>20</w>
-      <h>1050</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1040.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8595</x>
-      <y>640</y>
-      <w>405</w>
-      <h>127</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1
-m2=1..*
-List&lt;Rol&gt; roles</panel_attributes>
-    <additional_attributes>394.5;10.0;394.5;117.0;10.0;117.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5831</x>
-      <y>640</y>
-      <w>3159</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-&gt;
-m1=1
-m2=0..*
-List&lt;AbstractTransaccion&gt; transacciones</panel_attributes>
-    <additional_attributes>3148.7;10.0;3148.7;67.0;10.0;67.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>9280</x>
-      <y>1215</y>
-      <w>20</w>
-      <h>175</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;165.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8176</x>
-      <y>340</y>
-      <w>1306</w>
-      <h>1293</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;Usuario&gt; usuarios</panel_attributes>
-    <additional_attributes>1295.9;10.0;1295.9;1283.0;10.0;1283.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8533</x>
-      <y>1000</y>
-      <w>507</w>
-      <h>108</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;98.0;496.5;98.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6150</x>
-      <y>1010</y>
-      <w>3089</w>
-      <h>645</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;243.0;3079.3;243.0;3079.3;635.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>961</x>
-      <y>1218</y>
-      <w>991</w>
-      <h>122</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>981.5;10.0;10.0;10.0;10.0;112.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1469</x>
-      <y>1220</y>
-      <w>484</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>473.5;10.0;10.0;12.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2032</x>
-      <y>1225</y>
-      <w>20</w>
-      <h>125</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;115.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5219</x>
-      <y>1185</y>
-      <w>20</w>
-      <h>195</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;185.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3920</x>
-      <y>1132</y>
-      <w>1212</w>
-      <h>248</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1201.9;10.0;10.0;10.0;10.0;238.1</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>4596</x>
-      <y>1158</y>
-      <w>536</w>
-      <h>222</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>525.9;10.0;10.0;10.0;10.0;212.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6270</x>
-      <y>1139</y>
-      <w>619</w>
-      <h>251</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>609.3;10.0;10.0;10.0;10.0;241.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5141</x>
-      <y>1455</y>
-      <w>1247</w>
-      <h>205</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1237.0;10.0;1237.0;44.0;10.0;44.0;10.0;195.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6558</x>
-      <y>1455</y>
-      <w>20</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5096</x>
-      <y>1770</y>
-      <w>20</w>
-      <h>260</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>4896</x>
-      <y>1770</y>
-      <w>20</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6438</x>
-      <y>1010</y>
-      <w>20</w>
-      <h>355</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;345.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>4934</x>
-      <y>1005</y>
-      <w>853</w>
-      <h>655</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;RolJugador&gt; alineacion</panel_attributes>
-    <additional_attributes>843.0;10.0;10.0;12.0;10.0;645.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5325</x>
-      <y>1185</y>
-      <w>323</w>
-      <h>175</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;165.0;312.7;165.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6731</x>
-      <y>1455</y>
-      <w>1106</w>
-      <h>141</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;AbstractPartido&gt; partidos</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;131.0;1095.7;131.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1041</x>
-      <y>1003</y>
-      <w>4746</w>
-      <h>92</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>4736.0;10.0;10.0;10.0;10.0;82.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1149</x>
-      <y>1215</y>
-      <w>1787</w>
-      <h>455</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;JugadorNomina&gt; nomina</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;1777.5;50.0;1777.5;445.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3031</x>
-      <y>1215</y>
-      <w>20</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2869</x>
-      <y>1215</y>
-      <w>20</w>
-      <h>95</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;85.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5736</x>
-      <y>1210</y>
-      <w>20</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>9515</x>
-      <y>1442</y>
-      <w>99</w>
-      <h>213</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>89.0;10.0;10.0;10.0;10.0;203.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8655</x>
-      <y>120</y>
-      <w>20</w>
-      <h>75</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;65.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8130</x>
-      <y>255</y>
-      <w>315</w>
-      <h>1335</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;Articulo&gt; articulos</panel_attributes>
-    <additional_attributes>304.9;10.0;10.0;10.0;10.0;1325.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>9080</x>
-      <y>1010</y>
-      <w>20</w>
-      <h>85</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;75.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8225</x>
-      <y>955</y>
-      <w>190</w>
-      <h>165</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>180.0;10.0;10.0;10.0;10.0;155.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8137</x>
-      <y>1145</y>
-      <w>43</w>
-      <h>445</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;TurnoEmpleado&gt; turnos</panel_attributes>
-    <additional_attributes>32.8;10.0;10.0;10.0;10.0;435.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8176</x>
-      <y>1455</y>
-      <w>672</w>
-      <h>157</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;SolicitudCambioTurno&gt; solicitudes</panel_attributes>
-    <additional_attributes>662.3;10.0;662.3;147.0;10.0;147.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8290</x>
-      <y>1185</y>
-      <w>499</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1
-turnoNuevo</panel_attributes>
-    <additional_attributes>10.0;10.0;489.3;10.0;489.3;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>9010</x>
-      <y>1010</y>
-      <w>20</w>
-      <h>355</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;345.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>5710</x>
-      <y>1828</y>
-      <w>2126</w>
-      <h>187</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>2116.2;10.0;10.0;10.0;10.0;177.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3412</x>
-      <y>1495</y>
-      <w>4424</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;Equipo&gt; equipos</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;94.0;4414.2;94.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6829</x>
-      <y>1010</y>
-      <w>1007</w>
-      <h>585</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
-List&lt;AbstractDeporte&gt; deportes</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;573.0;997.3;575.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>7936</x>
-      <y>1840</y>
+      <x>8758</x>
+      <y>1320</y>
       <w>20</w>
       <h>150</h>
     </coordinates>
@@ -2294,80 +1740,693 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8176</x>
-      <y>1807</y>
-      <w>1326</w>
-      <h>103</h>
+      <x>8695</x>
+      <y>1050</y>
+      <w>266</w>
+      <h>460</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;1316.1;10.0;1316.1;93.0</additional_attributes>
+    <additional_attributes>10.0;10.0;255.6;10.0;255.6;450.1</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>8056</x>
-      <y>1840</y>
-      <w>276</w>
-      <h>117</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;107.0;266.2;107.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>6811</x>
-      <y>1834</y>
-      <w>1025</w>
-      <h>136</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>1015.3;10.0;10.0;10.0;10.0;126.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>7513</x>
-      <y>1835</y>
-      <w>323</w>
-      <h>135</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>313.1;10.0;10.0;12.0;10.0;125.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>8595</x>
-      <y>640</y>
-      <w>415</w>
+      <x>8380</x>
+      <y>1337</y>
+      <w>533</w>
       <h>173</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
-persona</panel_attributes>
-    <additional_attributes>404.6;10.0;404.6;163.0;10.0;163.0</additional_attributes>
+turnoActual</panel_attributes>
+    <additional_attributes>10.0;10.0;522.8;10.0;522.8;163.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>9133</x>
-      <y>295</y>
+      <x>5473</x>
+      <y>950</y>
       <w>20</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5636</x>
+      <y>950</y>
+      <w>20</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;85.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5831</x>
+      <y>620</y>
+      <w>1068</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;Compra&gt; compras</panel_attributes>
+    <additional_attributes>1058.0;10.0;1057.5;133.1;10.0;133.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>7084</x>
+      <y>380</y>
+      <w>1443</w>
+      <h>142</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>1433.4;10.0;1433.4;132.1;10.0;132.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8870</x>
+      <y>380</y>
+      <w>20</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;145.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8635</x>
+      <y>380</y>
+      <w>20</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;145.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8214</x>
+      <y>1382</y>
+      <w>916</w>
+      <h>378</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes>
+    <additional_attributes>906.2;10.0;10.0;10.0;10.0;368.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6197</x>
+      <y>910</y>
+      <w>2382</w>
       <h>115</h>
     </coordinates>
-    <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;105.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>2371.5;10.0;2371.5;105.0;10.0;105.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>5507</x>
-      <y>1735</y>
+      <x>8622</x>
+      <y>910</y>
+      <w>20</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9412</x>
+      <y>360</y>
+      <w>20</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9460</x>
+      <y>360</y>
+      <w>20</w>
+      <h>1200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1190.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8685</x>
+      <y>680</y>
+      <w>405</w>
+      <h>157</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1..*
+List&lt;Rol&gt; roles</panel_attributes>
+    <additional_attributes>394.5;10.0;394.5;147.1;10.0;147.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5831</x>
+      <y>680</y>
+      <w>3249</w>
+      <h>97</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=1
+m2=0..*
+List&lt;AbstractTransaccion&gt; transacciones</panel_attributes>
+    <additional_attributes>3238.7;10.0;3238.7;87.1;10.0;87.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9370</x>
+      <y>1395</y>
+      <w>20</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;155.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8255</x>
+      <y>360</y>
+      <w>1344</w>
+      <h>1427</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;Usuario&gt; usuarios</panel_attributes>
+    <additional_attributes>1334.1;10.0;1334.1;1417.1;10.0;1417.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8640</x>
+      <y>1110</y>
+      <w>490</w>
+      <h>107</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;97.0;480.0;97.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6197</x>
+      <y>1122</y>
+      <w>3362</w>
+      <h>678</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;3352.2;10.0;3352.2;668.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>1370</y>
+      <w>977</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>967.0;10.0;967.0;135.0;10.0;135.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1469</x>
+      <y>1290</y>
+      <w>484</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>473.5;10.0;10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2082</x>
+      <y>1370</y>
+      <w>20</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5219</x>
+      <y>1330</y>
+      <w>20</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3920</x>
+      <y>1277</y>
+      <w>1212</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>1201.9;10.0;10.0;10.0;10.0;263.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4596</x>
+      <y>1303</y>
+      <w>536</w>
+      <h>247</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>525.9;10.0;10.0;10.0;10.0;237.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6270</x>
+      <y>1275</y>
+      <w>619</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>609.3;10.0;10.0;10.0;10.0;275.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5141</x>
+      <y>1640</y>
+      <w>1247</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>1237.0;10.0;1237.0;50.0;10.0;50.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6558</x>
+      <y>1640</y>
+      <w>20</w>
+      <h>215</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;205.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5104</x>
+      <y>1960</y>
+      <w>20</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;215.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4884</x>
+      <y>1960</y>
+      <w>20</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;185.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6438</x>
+      <y>1120</y>
+      <w>20</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;390.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4934</x>
+      <y>1123</y>
+      <w>853</w>
+      <h>687</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;RolJugador&gt; alineacion</panel_attributes>
+    <additional_attributes>843.0;10.0;10.0;10.0;10.0;677.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5325</x>
+      <y>1330</y>
+      <w>323</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;182.0;312.7;182.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6731</x>
+      <y>1640</y>
+      <w>1184</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;AbstractPartido&gt; partidos</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;116.0;1174.2;116.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1041</x>
+      <y>1117</y>
+      <w>4746</w>
+      <h>113</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>4736.0;10.0;10.0;10.0;10.0;103.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1068</x>
+      <y>1370</y>
+      <w>1790</w>
+      <h>465</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;JugadorNomina&gt; nomina</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;455.0;1780.0;455.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3031</x>
+      <y>1360</y>
+      <w>20</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2869</x>
+      <y>1360</y>
+      <w>20</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5736</x>
+      <y>1355</y>
+      <w>20</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9618</x>
+      <y>1612</y>
+      <w>86</w>
+      <h>188</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>76.1;10.0;10.0;10.0;10.0;178.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8724</x>
+      <y>120</y>
+      <w>20</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8142</x>
+      <y>275</y>
+      <w>372</w>
+      <h>1485</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;Articulo&gt; articulos</panel_attributes>
+    <additional_attributes>362.5;10.0;10.0;10.0;10.0;1475.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9170</x>
+      <y>1120</y>
+      <w>20</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;75.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8380</x>
+      <y>1110</y>
+      <w>180</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;135.1;10.0;135.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8186</x>
+      <y>1370</y>
+      <w>20</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;TurnoEmpleado&gt; turnos</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;380.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8255</x>
+      <y>1650</y>
+      <w>684</w>
+      <h>123</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;SolicitudCambioTurno&gt; solicitudes</panel_attributes>
+    <additional_attributes>673.8;10.0;673.8;113.0;10.0;113.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8380</x>
+      <y>1353</y>
+      <w>500</w>
+      <h>157</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+turnoNuevo</panel_attributes>
+    <additional_attributes>10.0;10.0;489.7;10.0;489.7;147.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9100</x>
+      <y>1120</y>
+      <w>20</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;380.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5721</x>
+      <y>1998</y>
+      <w>2193</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>2183.2;10.0;10.0;10.0;10.0;177.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3412</x>
+      <y>1690</y>
+      <w>4503</w>
+      <h>79</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;Equipo&gt; equipos</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;69.0;4492.7;69.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6816</x>
+      <y>1120</y>
+      <w>1099</w>
+      <h>645</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+List&lt;AbstractDeporte&gt; deportes</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;633.1;1088.7;635.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8015</x>
+      <y>2010</y>
+      <w>20</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8255</x>
+      <y>1990</y>
+      <w>1327</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;1316.8;10.0;1316.8;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8135</x>
+      <y>2010</y>
+      <w>265</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;107.0;254.7;107.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6863</x>
+      <y>2004</y>
+      <w>1052</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>1041.7;10.0;10.0;10.0;10.0;126.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>7691</x>
+      <y>2005</y>
+      <w>224</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>213.8;10.0;10.0;12.0;10.0;125.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>8685</x>
+      <y>680</y>
+      <w>415</w>
+      <h>203</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+persona</panel_attributes>
+    <additional_attributes>404.6;10.0;404.6;193.1;10.0;193.1</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>9223</x>
+      <y>315</y>
+      <w>20</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;125.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5519</x>
+      <y>1905</y>
       <w>20</w>
       <h>280</h>
     </coordinates>
@@ -2377,12 +2436,12 @@ persona</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>9041</x>
-      <y>1735</y>
-      <w>377</w>
+      <x>9131</x>
+      <y>1905</y>
+      <w>355</w>
       <h>192</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;182.0;366.9;182.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;182.0;345.3;182.0</additional_attributes>
   </element>
 </diagram>

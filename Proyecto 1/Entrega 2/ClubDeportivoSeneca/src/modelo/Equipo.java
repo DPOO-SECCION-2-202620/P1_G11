@@ -38,17 +38,64 @@ public class Equipo implements Serializable {
 	}
 
 	public InfoJugador inscribirJugador(RolJugador jugador, String posicion, int numeroCamisa) {
-		// TODO: RF-SOC-01, D-15: cupo, edad (RN-04), un equipo por deporte (RN-03), camiseta (RN-05), posición
-		throw new UnsupportedOperationException("Pendiente");
+		if (!activo) {
+			throw new IllegalStateException("El equipo se encuentra inactivo");
+		}
+		if (jugadores.size() >= maxJugadores) {
+			throw new IllegalStateException("El equipo esta lleno");
+		}
+		for (InfoJugador info : jugadores) {
+			if (info.getNumeroCamisa() == numeroCamisa) {
+				throw new IllegalStateException("Este numero de camisa ya se encuentra ocupado");
+			}
+		}
+		if (!categoria.admiteEdad(jugador.getPersona().getEdad())) {
+			throw new IllegalStateException("La edad del jugador no se incluye en la categoria del equipo");
+		};
+		if (!deporte.getPosicionesValidas().contains(posicion)) {
+			throw new IllegalStateException("La posicion del jugador no se encuentra entre las validas para el deporte");	
+		};
+
+		for (InfoJugador info : jugador.getInfoEquipos()) {
+			if (info.getEquipo().getDeporte().equals(deporte)) {
+				throw new IllegalStateException("El jugador ya pertenece a un equipo de este deporte");
+			}
+		}
+
+		//Paso las comprobaciones
+
+		InfoJugador infoJ = new InfoJugador(jugador, this, posicion, numeroCamisa);
+		jugadores.add(infoJ);
+		jugador.agregarInfoEquipo(infoJ);
+
+		return infoJ;
 	}
 
 	public void retirarJugador(RolJugador jugador) {
-		// TODO: RF-SOC-03
-		throw new UnsupportedOperationException("Pendiente");
+		for (InfoJugador infoJ : jugadores) {
+			if (infoJ.getJugador() == jugador) {
+				jugadores.remove(infoJ);
+				jugador.quitarInfoEquipo(infoJ);
+				return;
+			}
+		}
+
+		throw new IllegalArgumentException("El jugador no se encuentra en el equipo");
 	}
 
 	public void darDeBaja() {
-		// TODO: RF-ADM-04
-		throw new UnsupportedOperationException("Pendiente");
+		activo = false;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
 	}
 }

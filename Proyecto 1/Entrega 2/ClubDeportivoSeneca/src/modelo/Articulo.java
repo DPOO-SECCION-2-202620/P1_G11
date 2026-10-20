@@ -36,4 +36,16 @@ public class Articulo implements Serializable {
 		// TODO: D-21: al vender
 		throw new UnsupportedOperationException("Pendiente");
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
 }

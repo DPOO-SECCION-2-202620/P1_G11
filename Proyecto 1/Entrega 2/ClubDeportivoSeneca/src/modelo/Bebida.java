@@ -10,4 +10,8 @@ public class Bebida extends Articulo {
 		super(nombre, categoria, precio);
 		this.caliente = caliente;
 	}
+
+	public boolean isCaliente() {
+		return caliente;
+	}
 }

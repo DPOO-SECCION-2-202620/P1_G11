@@ -28,4 +28,12 @@ public abstract class AbstractPartido implements Serializable {
 		// TODO: D-10: crear con deporte.crearEstadisticas(), guardar en el mapa y retornar
 		throw new UnsupportedOperationException("Pendiente");
 	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public Map<RolJugador, AbstractEstadisticas> getEstadisticas() {
+		return estadisticas;
+	}
 }

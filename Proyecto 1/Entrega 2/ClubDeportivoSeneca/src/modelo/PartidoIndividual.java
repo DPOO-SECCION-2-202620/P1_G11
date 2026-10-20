@@ -15,4 +15,8 @@ public class PartidoIndividual extends AbstractPartido {
 		// TODO: D-17: ganador por sets, +1 / -1, nunca negativo
 		throw new UnsupportedOperationException("Pendiente");
 	}
+
+	public Reserva getReserva() {
+		return reserva;
+	}
 }

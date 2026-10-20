@@ -29,4 +29,16 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 		// TODO: RF-ENT-06, D-07: rechazar empate si el deporte no lo permite
 		throw new UnsupportedOperationException("Pendiente");
 	}
+
+	public int getMarcadorLocal() {
+		return marcadorLocal;
+	}
+
+	public int getMarcadorVisitante() {
+		return marcadorVisitante;
+	}
+
+	public List<RolJugador> getAlineacion() {
+		return alineacion;
+	}
 }

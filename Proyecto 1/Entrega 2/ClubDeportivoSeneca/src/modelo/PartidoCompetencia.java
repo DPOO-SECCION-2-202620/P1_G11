@@ -28,4 +28,16 @@ public class PartidoCompetencia extends AbstractPartidoEquipos {
 		// TODO: D-14: además sumar los puntos al equipo del club en su participación
 		throw new UnsupportedOperationException("Pendiente");
 	}
+
+	public AbstractCompetencia getCompetencia() {
+		return competencia;
+	}
+
+	public Equipo getEquipoClub() {
+		return equipoClub;
+	}
+
+	public String getEquipoExterno() {
+		return equipoExterno;
+	}
 }
