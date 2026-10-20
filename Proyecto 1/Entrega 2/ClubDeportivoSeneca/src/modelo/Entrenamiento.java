@@ -37,18 +37,13 @@ public class Entrenamiento implements Serializable {
 	}
 
 	public void convocar(Jugador jugador) {
-		// TODO: RF-ENT-01, D-20: crear su AsistenciaEntreno
-		throw new UnsupportedOperationException("Pendiente");
+		convocados.add(new AsistenciaEntreno(jugador));
 	}
 
 	public void registrarAsistencia(Jugador jugador, EstadoAsistencia estado) {
-		// TODO: RF-ENT-03
-		throw new UnsupportedOperationException("Pendiente");
 	}
 
 	public void registrarEvaluacion(Jugador jugador, int nota, String comentario) {
-		// TODO: RF-ENT-04
-		throw new UnsupportedOperationException("Pendiente");
 	}
 
 	public void cancelar() {

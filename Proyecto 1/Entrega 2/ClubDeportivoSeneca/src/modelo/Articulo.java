@@ -28,17 +28,37 @@ public class Articulo implements Serializable {
 	}
 
 	public void mover(Ubicacion origen, Ubicacion destino, int cantidad) {
-		// TODO: RF-ADM-07, D-21: validar cantidad suficiente en origen
-		throw new UnsupportedOperationException("Pendiente");
+		if (cantidad <= 0) {
+			throw new IllegalStateException("Cantidad a mover invalida");
+		}
+		if (cantidad > cantidades.get(origen)) {
+			throw new IllegalStateException("Cantidad a mover se excede de lo que se tiene");
+		}
+
+		int cant_org = cantidades.get(origen) - cantidad;
+		int cant_dest = cantidades.get(destino) + cantidad;
+		cantidades.put(origen, cant_org);
+		cantidades.put(destino, cant_dest);
+
 	}
 
 	public void descontar(Ubicacion ubicacion, int cantidad) {
-		// TODO: D-21: al vender
-		throw new UnsupportedOperationException("Pendiente");
+		if (cantidad <= 0) {
+			throw new IllegalStateException("Cantidad a descontar invalida");
+		}
+		if (cantidad > cantidades.get(ubicacion)) {
+			throw new IllegalStateException("Cantidad a descontar se excede de lo que se tiene");
+		}
+		int cant = cantidades.get(ubicacion) - cantidad;
+		cantidades.put(ubicacion, cant);
+
 	}
 
 	public void reabastecer(Ubicacion ubicacion, int cantidad) {
-		// TODO: RF-ADM-08: sumar cantidad positiva
-		throw new UnsupportedOperationException("Pendiente");
+		if (cantidad <= 0) {
+			throw new IllegalStateException("Cantidad a reabastecer invalida");
+		}
+		int cant = cantidades.get(ubicacion) + cantidad;
+		cantidades.put(ubicacion, cant);
 	}
 }

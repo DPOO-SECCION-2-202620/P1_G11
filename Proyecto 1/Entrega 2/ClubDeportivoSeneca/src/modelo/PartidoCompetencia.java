@@ -22,7 +22,6 @@ public class PartidoCompetencia extends AbstractPartidoEquipos {
 
 	@Override
 	public void registrarResultado(int local, int visitante) {
-		// TODO: D-14: super.registrarResultado(...); los puntos de la participacion los suma GestorDeportivo (competenciaDe)
-		throw new UnsupportedOperationException("Pendiente");
+		super.registrarResultado(local, visitante);
 	}
 }
