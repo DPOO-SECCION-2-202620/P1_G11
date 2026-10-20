@@ -27,11 +27,7 @@ public abstract class Usuario implements Serializable {
 	}
 
 	public boolean autenticar(String i_password) {
-		if (i_password == password) {
-			return true;
-		} else {
-			return false;
-		}
+		return password.equals(i_password);
 	}
 
 	public abstract boolean estaActivo();

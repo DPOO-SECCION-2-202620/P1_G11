@@ -8,29 +8,11 @@ public enum Categoria {
 		if (edad <= 0) {
 			throw new IllegalArgumentException("La edad debe ser positiva");
 		}
-
-		if (this == SUB13) {
-			if (edad > 13) {
-				return false;
-			} else {return true;}
-		}
-
-		else if (this == SUB15) {
-			if (edad > 15 || edad <= 13) {
-				return false;
-			} else {return true;}
-		}
-
-		else if (this == SUB17) {
-			if (edad > 17 || edad <= 15) {
-				return false;
-			} else {return true;}
-		}
-
-		else if (this == MAYORES) {
-			if (edad > 22) {
-				return true;
-			} else {return false;}
-		}
+		return switch (this) {
+			case SUB13 -> edad <= 13;
+			case SUB15 -> edad >= 14 && edad <= 15;
+			case SUB17 -> edad >= 16 && edad <= 17;
+			case MAYORES -> edad >= 18;
+        };
 	}
 }

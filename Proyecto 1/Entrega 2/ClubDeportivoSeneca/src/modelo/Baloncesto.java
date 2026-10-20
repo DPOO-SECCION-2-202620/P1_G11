@@ -17,31 +17,26 @@ public class Baloncesto extends DepConjunto {
 
 	@Override
 	public int getMinJugadores() {
-		// TODO: valor del enunciado
-		throw new UnsupportedOperationException("Pendiente");
+		return 5;
 	}
 
 	@Override
 	public int getPuntosVictoria() {
-		// TODO: valor del enunciado
-		throw new UnsupportedOperationException("Pendiente");
+		return 2;
 	}
 
 	@Override
 	public int getPuntosEmpate() {
-		// TODO: valor del enunciado
-		throw new UnsupportedOperationException("Pendiente");
+		return 0;
 	}
 
 	@Override
 	public int getPuntosDerrota() {
-		// TODO: valor del enunciado
-		throw new UnsupportedOperationException("Pendiente");
+		return 0;
 	}
 
 	@Override
 	public List<String> getPosicionesValidas() {
-		// TODO: valor del enunciado
-		throw new UnsupportedOperationException("Pendiente");
+		return List.of("base", "escolta", "alero", "ala-pivot", "pivot");
 	}
 }
