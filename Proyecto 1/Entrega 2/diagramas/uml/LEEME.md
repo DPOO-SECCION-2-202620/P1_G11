@@ -7,7 +7,8 @@
 
 Regenerar los dos diagramas desde la carpeta `Entrega 2/diagramas/`:
 
-    python3 uml/generar.py detallado  disenioP1_g11.uxf             # punto a
     python3 uml/generar.py alto_nivel disenioP1_g11_alto_nivel.uxf  # punto b
 
 No editar los `.uxf` a mano: el siguiente regenerado borra los cambios. Los cambios se hacen en `modelo.py`.
+
+Desde el 2026-10-19 el diagrama detallado (punto a) es `diagrama_clases_entrega2P1G11.uxf`, editado a mano en UMLet. `modelo.py` se extrajo de él con `extraer.py`; si se edita el detallado, hay que volver a extraer el modelo antes de regenerar el de alto nivel.
