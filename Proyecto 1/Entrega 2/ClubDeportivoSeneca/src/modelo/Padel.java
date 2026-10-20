@@ -16,6 +16,6 @@ public class Padel extends DepIndividual {
 	@Override
 	public boolean admiteJugadores(int cantidad) {
 		// TODO: D-18, RN-08: solo 4
-		throw new UnsupportedOperationException("Pendiente");
+		return cantidad == 4;
 	}
 }
