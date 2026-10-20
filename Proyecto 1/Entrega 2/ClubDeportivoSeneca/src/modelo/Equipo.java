@@ -57,7 +57,7 @@ public class Equipo implements Serializable {
 		};
 
 		for (InfoJugador info : jugador.getInfoEquipos()) {
-			if (info.getEquipo().getDeporte().equals(deporte)) {
+			if (info.getEquipo().getDeporte().equals(deporte) && info.getEquipo().isActivo()) {
 				throw new IllegalStateException("El jugador ya pertenece a un equipo de este deporte");
 			}
 		}

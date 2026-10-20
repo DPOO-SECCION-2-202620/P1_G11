@@ -40,8 +40,27 @@ public abstract class AbstractCompetencia implements Serializable {
 	}
 
 	public void inscribirEquipo(Equipo equipo, List<RolJugador> nomina) {
-		// TODO: RF-ADM-16, D-13, RN-24
-		throw new UnsupportedOperationException("Pendiente");
+		if (!(equipo.getCategoria() == categoria)) {
+			throw new IllegalStateException("La categoria del equipo no corresponde a la de la competenica");
+		}
+		if (!(equipo.getDeporte() == deporte)) {
+			throw new IllegalStateException("El deporte del equipo no corresponde a la de la competenica");
+		}
+		if (nomina.size() < minimoJugadoresNomina) {
+			throw new IllegalStateException("Jugadores insuficientes para la competencia");
+
+		}
+		for (ParticipacionCompe p : participaciones) {
+			if (p.getEquipo() == equipo) {
+				throw new IllegalStateException("El equipo ya se encuentra inscrito");
+			}
+		}
+
+		ParticipacionCompe p = new ParticipacionCompe(this, equipo);
+		participaciones.add(p);
+		for (RolJugador rolJugador : nomina) {
+			p.getNomina().add(new JugadorNomina(rolJugador));
+		}
 	}
 
 	public void agregarPartido(PartidoCompetencia partido) {
@@ -49,8 +68,12 @@ public abstract class AbstractCompetencia implements Serializable {
 	}
 
 	public ParticipacionCompe getParticipacion(Equipo equipo) {
-		// TODO: D-14: buscar la participación del equipo
-		throw new UnsupportedOperationException("Pendiente");
+		for (ParticipacionCompe participacion : participaciones) {
+			if (participacion.getEquipo() == equipo) {
+				return  participacion;
+			}
+		}
+		throw new IllegalStateException("El equipo no se encuentra inscrito");
 	}
 
 	public RolJugador getGoleador() {

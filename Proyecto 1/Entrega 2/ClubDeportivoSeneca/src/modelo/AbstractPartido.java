@@ -25,8 +25,11 @@ public abstract class AbstractPartido implements Serializable {
 	}
 
 	public AbstractEstadisticas registrarEstadisticas(RolJugador jugador) {
-		// TODO: D-10: crear con deporte.crearEstadisticas(), guardar en el mapa y retornar
-		throw new UnsupportedOperationException("Pendiente");
+	
+		AbstractEstadisticas est = deporte.crearEstadisticas(this, jugador);
+		estadisticas.put(jugador, est);
+		
+		return est;
 	}
 
 	public String getFecha() {

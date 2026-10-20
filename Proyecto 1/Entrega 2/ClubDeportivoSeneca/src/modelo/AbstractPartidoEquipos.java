@@ -21,13 +21,26 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 	}
 
 	public void registrarAlineacion(Equipo equipo, List<RolJugador> jugadores) {
-		// TODO: RF-ENT-05, D-09: mínimo de jugadores y nadie suspendido
-		throw new UnsupportedOperationException("Pendiente");
+		if (jugadores.size() < ((DepConjunto) getDeporte()).getMinJugadores()) {
+			throw new IllegalArgumentException("Cantidad de jugadores insuficiente");
+		}
+		for (InfoJugador inforJ : equipo.getJugadores()) {
+			if (jugadores.contains(inforJ.getJugador()) && inforJ.isSuspendido()) {
+				throw new IllegalArgumentException("Hay un jugador suspendido en la alineacion");
+			}
+		}
+		alineacion.addAll(jugadores);
 	}
 
 	public void registrarResultado(int local, int visitante) {
-		// TODO: RF-ENT-06, D-07: rechazar empate si el deporte no lo permite
-		throw new UnsupportedOperationException("Pendiente");
+		if (local < 0 || visitante < 0) {
+			throw new IllegalArgumentException("El marcador no puede ser negativo");
+		}
+		if (local == visitante && !((DepConjunto) getDeporte()).permiteEmpate()) {
+			throw new IllegalArgumentException("El deporte no permite registrar empates");
+		}
+		marcadorLocal = local;
+		marcadorVisitante = visitante;
 	}
 
 	public int getMarcadorLocal() {
