@@ -111,21 +111,37 @@ public class ClubDeportivo implements Serializable {
 
 	public Cancha asignarCancha(AbstractDeporte deporte, String fecha, int horaInicio, int horaFin, int cantidadJugadores) {
 		// TODO: RN-06 a RN-09: cancha del deporte, libre, con capacidad y sin pasar maxSimultaneas
-		throw new UnsupportedOperationException("Pendiente");
+			if (contarOcupadas(deporte, fecha, horaInicio, horaFin) >= deporte.getMaxSimultaneas()) {
+		return null;
 	}
+	for (Cancha c : canchas) {
+		if (c.getDeporte() == deporte && c.tieneCapacidadPara(cantidadJugadores) && c.estaDisponible(fecha, horaInicio, horaFin)) {
+			c.ocupar(fecha, horaInicio, horaFin);
+			return c;
+		}
+	}
+	return null; 
+}	
 
 	public void liberarCancha(Cancha cancha, String fecha, int horaInicio, int horaFin) {
 		// TODO: cancha.liberar(...)
-		throw new UnsupportedOperationException("Pendiente");
-	}
+		cancha.liberar(fecha, horaInicio, horaFin);
+}
 
 	public int contarOcupadas(AbstractDeporte deporte, String fecha, int horaInicio, int horaFin) {
 		// TODO: RN-09: canchas del deporte ocupadas en ese bloque
-		throw new UnsupportedOperationException("Pendiente");
+		int ocupadas = 0;
+	for (Cancha c : canchas) {
+		if (c.getDeporte() == deporte && !c.estaDisponible(fecha, horaInicio, horaFin)) {
+			ocupadas++;
+		}
 	}
+	return ocupadas;
+}
+
 
 	public boolean bloqueValido(int horaInicio, int horaFin) {
 		// TODO: dentro del horario del club y horaInicio < horaFin
-		throw new UnsupportedOperationException("Pendiente");
-	}
+		return horaInicio < horaFin && horaInicio >= horaApertura && horaFin <= horaCierre;
+}
 }
