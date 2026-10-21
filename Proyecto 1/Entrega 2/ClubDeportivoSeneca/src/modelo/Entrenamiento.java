@@ -41,9 +41,13 @@ public class Entrenamiento implements Serializable {
 	}
 
 	public void registrarAsistencia(Jugador jugador, EstadoAsistencia estado) {
+		AsistenciaEntreno player = buscar(jugador);
+		player.setEstado(estado);
 	}
 
 	public void registrarEvaluacion(Jugador jugador, int nota, String comentario) {
+		AsistenciaEntreno player = buscar(jugador);
+		player.setEvaluacion(nota, comentario);
 	}
 
 	public void cancelar() {
@@ -53,4 +57,28 @@ public class Entrenamiento implements Serializable {
 	public boolean estaActivo() {
 		return activo;
 	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public Cancha getCancha() {
+		return cancha;
+	}
+
+	public int getHoraInicio() {
+		return horaInicio;
+	}
+
+	public int getHoraFin() {
+		return horaFin;
+	}
+	private AsistenciaEntreno buscar(Jugador jugador) {
+		for (AsistenciaEntreno a : convocados) {
+			if (a.getJugador() == jugador) {
+				return a;
+			}
+		}throw new IllegalArgumentException("El jugador no esta convocado a este entrenamiento");
+	}
+	
 }

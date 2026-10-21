@@ -15,7 +15,7 @@ public class TransCafeteria extends AbstractTransaccion {
 
 	@Override
 	public double calcularTotal() {
-		// TODO: D-22: subtotal con descuento + impuesto + propina
-		throw new UnsupportedOperationException("Pendiente");
+		double base = calcularBase();
+		return base + base * IMPUESTO + calcularSubtotal() * propina;
 	}
 }

@@ -33,4 +33,7 @@ public class JugadorNomina implements Serializable {
 	public void setSuspendido(boolean suspendido) {
 		this.suspendido = suspendido;
 	}
+	public Jugador getJugador() {
+		return jugador;
+	}
 }

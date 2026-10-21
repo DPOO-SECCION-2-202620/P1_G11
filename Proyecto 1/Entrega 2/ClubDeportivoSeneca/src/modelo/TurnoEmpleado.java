@@ -21,4 +21,21 @@ public class TurnoEmpleado implements Serializable {
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 	}
+
+	public AbstractEmpleado getEmpleado() {
+		return empleado;
+	}
+
+	public DayOfWeek getDia() {
+		return dia;
+	}
+
+	public int getHoraInicio() {
+		return horaInicio;
+	}
+
+	public int getHoraFin() {
+		return horaFin;
+	}
+	
 }

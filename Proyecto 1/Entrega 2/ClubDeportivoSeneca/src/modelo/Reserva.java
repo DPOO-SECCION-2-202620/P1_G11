@@ -38,4 +38,21 @@ public class Reserva implements Serializable {
 	public boolean estaActiva() {
 		return activa;
 	}
+
+	public Cancha getCancha() {
+		return cancha;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public int getHoraInicio() {
+		return horaInicio;
+	}
+
+	public int getHoraFin() {
+		return horaFin;
+	}
+	
 }

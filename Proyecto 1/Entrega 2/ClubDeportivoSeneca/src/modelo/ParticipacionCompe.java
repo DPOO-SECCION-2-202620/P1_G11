@@ -31,4 +31,10 @@ public class ParticipacionCompe implements Serializable {
 	public void sumarPuntos(int puntos) {
 		puntosAcumulados += puntos;
 	}
+
+	public Equipo getEquipo() {
+		return equipo;
+	}
+
+
 }

@@ -30,7 +30,16 @@ public class AsistenciaEntreno implements Serializable {
 	}
 
 	public void setEvaluacion(int nota, String comentario) {
-		this.nota = nota;
+		if (estado != EstadoAsistencia.ASISTIO && estado != EstadoAsistencia.TARDE) {
+			throw new IllegalStateException("Solo se evalua a quien asistio");
+		}if (nota < 1 || nota > 5) {
+			throw new IllegalArgumentException("La nota debe estar entre 1 y 5");
+		}this.nota = nota;
 		this.comentario = comentario;
 	}
+
+	public Jugador getJugador() {
+		return jugador;
+	}
+	
 }

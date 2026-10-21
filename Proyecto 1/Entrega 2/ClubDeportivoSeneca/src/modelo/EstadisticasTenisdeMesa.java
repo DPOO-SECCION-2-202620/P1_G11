@@ -12,4 +12,7 @@ public class EstadisticasTenisdeMesa extends EstadisticasIndividual {
 		this.SetGanados = 0;
 		this.Puntas = 0;
 	}
+	public int getSets() {
+		return SetGanados;
+	}
 }

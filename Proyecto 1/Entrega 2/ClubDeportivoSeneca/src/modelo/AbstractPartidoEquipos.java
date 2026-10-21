@@ -6,11 +6,9 @@ import java.util.List;
 public abstract class AbstractPartidoEquipos extends AbstractPartido {
 
 	private static final long serialVersionUID = 1L;
-
 	private int marcadorLocal;
-
+	private boolean resultadoRegistrado;
 	private int marcadorVisitante;
-
 	private List<Jugador> alineacion;
 
 	protected AbstractPartidoEquipos(String fecha, DepConjunto deporte) {
@@ -18,6 +16,7 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 		this.marcadorLocal = 0;
 		this.marcadorVisitante = 0;
 		this.alineacion = new ArrayList<>();
+		this.resultadoRegistrado = false;
 	}
 
 	public void registrarAlineacion(Equipo equipo, List<Jugador> jugadores) {
@@ -35,8 +34,13 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 		}
 		alineacion.addAll(jugadores);
 	}
-
+	public boolean isResultadoRegistrado() {
+		return resultadoRegistrado;
+	}
 	public void registrarResultado(int local, int visitante) {
+		if (resultadoRegistrado) {
+			throw new IllegalStateException("El resultado de este partido ya fue registrado");
+		}
 		if (local < 0 || visitante < 0) {
 			throw new IllegalArgumentException("El marcador no puede ser negativo");
 		}
@@ -45,5 +49,6 @@ public abstract class AbstractPartidoEquipos extends AbstractPartido {
 		}
 		marcadorLocal = local;
 		marcadorVisitante = visitante;
+		resultadoRegistrado = true;
 	}
 }

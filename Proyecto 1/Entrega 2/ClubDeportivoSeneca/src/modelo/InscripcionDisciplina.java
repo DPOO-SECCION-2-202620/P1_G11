@@ -46,4 +46,9 @@ public class InscripcionDisciplina implements Serializable {
 		}
 		historialRanking.add(ranking);
 	}
+
+	public DepIndividual getDeporte() {
+		// TODO Auto-generated method stub
+		return deporte;
+	}
 }

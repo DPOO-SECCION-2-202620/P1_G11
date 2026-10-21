@@ -24,4 +24,7 @@ public class PartidoCompetencia extends AbstractPartidoEquipos {
 	public void registrarResultado(int local, int visitante) {
 		super.registrarResultado(local, visitante);
 	}
+	public Equipo getEquipoClub() {
+		return equipoClub;
+	}
 }

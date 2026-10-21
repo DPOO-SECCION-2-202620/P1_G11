@@ -30,35 +30,33 @@ public class Articulo implements Serializable {
 	public void mover(Ubicacion origen, Ubicacion destino, int cantidad) {
 		if (cantidad <= 0) {
 			throw new IllegalStateException("Cantidad a mover invalida");
-		}
-		if (cantidad > cantidades.get(origen)) {
+		}if (origen == destino) {
+			throw new IllegalStateException("El origen y el destino deben ser distintos");
+		}if (cantidad > getCantidad(origen)) {
 			throw new IllegalStateException("Cantidad a mover se excede de lo que se tiene");
-		}
-
-		int cant_org = cantidades.get(origen) - cantidad;
-		int cant_dest = cantidades.get(destino) + cantidad;
-		cantidades.put(origen, cant_org);
-		cantidades.put(destino, cant_dest);
-
+		}cantidades.put(origen, getCantidad(origen) - cantidad);
+		cantidades.put(destino, getCantidad(destino) + cantidad);
 	}
 
 	public void descontar(Ubicacion ubicacion, int cantidad) {
 		if (cantidad <= 0) {
 			throw new IllegalStateException("Cantidad a descontar invalida");
-		}
-		if (cantidad > cantidades.get(ubicacion)) {
+		}if (cantidad > getCantidad(ubicacion)) {
 			throw new IllegalStateException("Cantidad a descontar se excede de lo que se tiene");
-		}
-		int cant = cantidades.get(ubicacion) - cantidad;
-		cantidades.put(ubicacion, cant);
-
+		}cantidades.put(ubicacion, getCantidad(ubicacion) - cantidad);
 	}
 
 	public void reabastecer(Ubicacion ubicacion, int cantidad) {
 		if (cantidad <= 0) {
 			throw new IllegalStateException("Cantidad a reabastecer invalida");
-		}
-		int cant = cantidades.get(ubicacion) + cantidad;
-		cantidades.put(ubicacion, cant);
+		}cantidades.put(ubicacion, getCantidad(ubicacion) + cantidad);
 	}
+	public String getNombre() {
+		return nombre;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+	
 }

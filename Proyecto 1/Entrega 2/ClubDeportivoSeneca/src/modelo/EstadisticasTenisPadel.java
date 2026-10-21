@@ -18,4 +18,7 @@ public class EstadisticasTenisPadel extends EstadisticasIndividual {
 		this.erroresNoForzados = 0;
 		this.Sets = 0;
 	}
+	public int getSets() {
+		return Sets;
+	}
 }

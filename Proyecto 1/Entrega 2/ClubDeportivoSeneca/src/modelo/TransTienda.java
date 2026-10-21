@@ -12,7 +12,7 @@ public class TransTienda extends AbstractTransaccion {
 
 	@Override
 	public double calcularTotal() {
-		// TODO: D-22: subtotal con descuento + IVA
-		throw new UnsupportedOperationException("Pendiente");
+		double base = calcularBase();
+		return base + base * IVA;
 	}
 }

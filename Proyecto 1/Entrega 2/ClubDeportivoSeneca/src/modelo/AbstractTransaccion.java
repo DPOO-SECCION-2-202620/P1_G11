@@ -28,9 +28,23 @@ public abstract class AbstractTransaccion implements Serializable {
 	}
 
 	public void agregarCompra(Articulo articulo, int cantidad) {
-		// TODO: D-22: crear la Compras con el precio actual
-		throw new UnsupportedOperationException("Pendiente");
+		if (cantidad <= 0) {
+			throw new IllegalArgumentException("La cantidad debe ser positiva");
+		}compras.add(new Compras(articulo, cantidad, articulo.getPrecio()));
 	}
 
 	public abstract double calcularTotal();
+			
+	public String getFecha() {
+		return fecha;
+	}
+	protected double calcularSubtotal() {
+		double sub = 0;
+		for (Compras c : compras) {
+			sub += c.getCantidad() * c.getPrecioXunidad();
+		}return sub;
+	}
+	protected double calcularBase() {
+		return Math.max(0, calcularSubtotal() - descuento);
+	}
 }

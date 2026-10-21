@@ -17,4 +17,17 @@ public class Compras implements Serializable {
 		this.cantidad = cantidad;
 		this.precioXunidad = precioXunidad;
 	}
+
+	public Articulo getArticulo() {
+		return articulo;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public double getPrecioXunidad() {
+		return precioXunidad;
+	}
+
 }

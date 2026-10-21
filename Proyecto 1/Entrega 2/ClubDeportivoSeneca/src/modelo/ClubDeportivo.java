@@ -15,25 +15,15 @@ public class ClubDeportivo implements Serializable {
 	private List<Usuario> usuarios;
 
 	private List<AbstractDeporte> deportes;
-
 	private List<Equipo> equipos;
-
 	private List<Cancha> canchas;
-
 	private List<Reserva> reservas;
-
 	private List<Entrenamiento> entrenamientos;
-
 	private List<AbstractPartido> partidos;
-
 	private List<AbstractCompetencia> competencias;
-
 	private List<Articulo> articulos;
-
 	private List<SugerenciaArticulo> sugerencias;
-
 	private List<TurnoEmpleado> turnos;
-
 	private List<SolicitudCambioTurno> solicitudes;
 
 	public ClubDeportivo(int horaApertura, int horaCierre) {
@@ -41,7 +31,7 @@ public class ClubDeportivo implements Serializable {
 		this.horaCierre = horaCierre;
 		this.usuarios = new ArrayList<>();
 		this.deportes = new ArrayList<>();
-		this.equipos = new ArrayList<>();
+		this.equipos = new ArrayList<Equipo>();
 		this.canchas = new ArrayList<>();
 		this.reservas = new ArrayList<>();
 		this.entrenamientos = new ArrayList<>();
@@ -110,7 +100,6 @@ public class ClubDeportivo implements Serializable {
 	}
 
 	public Cancha asignarCancha(AbstractDeporte deporte, String fecha, int horaInicio, int horaFin, int cantidadJugadores) {
-		// TODO: RN-06 a RN-09: cancha del deporte, libre, con capacidad y sin pasar maxSimultaneas
 			if (contarOcupadas(deporte, fecha, horaInicio, horaFin) >= deporte.getMaxSimultaneas()) {
 		return null;
 	}
@@ -124,12 +113,10 @@ public class ClubDeportivo implements Serializable {
 }	
 
 	public void liberarCancha(Cancha cancha, String fecha, int horaInicio, int horaFin) {
-		// TODO: cancha.liberar(...)
 		cancha.liberar(fecha, horaInicio, horaFin);
 }
 
 	public int contarOcupadas(AbstractDeporte deporte, String fecha, int horaInicio, int horaFin) {
-		// TODO: RN-09: canchas del deporte ocupadas en ese bloque
 		int ocupadas = 0;
 	for (Cancha c : canchas) {
 		if (c.getDeporte() == deporte && !c.estaDisponible(fecha, horaInicio, horaFin)) {
@@ -141,7 +128,8 @@ public class ClubDeportivo implements Serializable {
 
 
 	public boolean bloqueValido(int horaInicio, int horaFin) {
-		// TODO: dentro del horario del club y horaInicio < horaFin
 		return horaInicio < horaFin && horaInicio >= horaApertura && horaFin <= horaCierre;
 }
+
+	
 }

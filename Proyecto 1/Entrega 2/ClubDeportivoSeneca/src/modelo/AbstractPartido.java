@@ -30,4 +30,12 @@ public abstract class AbstractPartido implements Serializable {
 
 		return est;
 	}
+	public String getFecha() {
+		return fecha;
+	}
+
+	public Map<Jugador, AbstractEstadisticas> getEstadisticas() {
+		return estadisticas;
+	}
+	
 }

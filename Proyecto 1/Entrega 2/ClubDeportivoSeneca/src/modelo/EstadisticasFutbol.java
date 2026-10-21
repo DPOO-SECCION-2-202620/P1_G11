@@ -18,4 +18,18 @@ public class EstadisticasFutbol extends AbstractEstadisticas {
 		this.Amarillas = 0;
 		this.Rojas = 0;
 	}
+	public int getAmarillas() {
+		return Amarillas;
+	}
+	public int getRojas() {
+		return Rojas;
+	}
+	public int getGoles() {
+		return Goles;
+	}
+	public int getAsistencias() {
+		return Asistencias;
+	}
+	
+	
 }
