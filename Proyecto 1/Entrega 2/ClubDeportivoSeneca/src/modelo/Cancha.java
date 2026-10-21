@@ -30,6 +30,10 @@ public class Cancha implements Serializable {
 		return ocupaciones;
 	}
 
+	public AbstractDeporte getDeporte() {
+		return deporte;
+	}
+
 	public boolean estaDisponible(String fecha, int horaInicio, int horaFin) {
 		// TODO: ninguna ocupacion seCruza
 			for (Ocupacion o : ocupaciones) {

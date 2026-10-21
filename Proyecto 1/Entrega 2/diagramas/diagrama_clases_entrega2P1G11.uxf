@@ -326,7 +326,7 @@ AbstractPartido
       <x>4779</x>
       <y>927</y>
       <w>441</w>
-      <h>180</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Cancha
 --
@@ -338,6 +338,7 @@ AbstractPartido
 +ocupar(fecha: String, horaInicio: int, horaFin: int): void
 +liberar(fecha: String, horaInicio: int, horaFin: int): void
 +getOcupaciones(): List&lt;Ocupacion&gt;
++getDeporte(): AbstractDeporte
 +tieneCapacidadPara(cantidad: int): boolean
 +permiteBebidaCaliente(): boolean</panel_attributes>
     <additional_attributes/>
